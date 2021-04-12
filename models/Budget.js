@@ -28,7 +28,7 @@ class Budget {
 
   static updateBudget(budgetAmount, title, description, bannerStyle, id) {
     const queryText = 'UPDATE budgets SET budget_amount = $1, title = $2, description = $3, banner_style = $4 WHERE id = $5 RETURNING  budget_amount, title, description, banner_style';
-    return query(queryText, [id]).then((results) => results.rows[0]);
+    return query(queryText, [budgetAmount, title, description, bannerStyle, id]).then((results) => results.rows[0]);
   }
 }
 
