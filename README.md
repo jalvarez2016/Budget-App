@@ -16,4 +16,4 @@ Trying to implement image storage for items and user profile pictures. Otherwise
 - Email summaries of spending on a configurable basis.
 - Alerts when a user is overbudget.
 - A birthday notification.
-- Banking integration. (edited) 
+- Banking integration. 
