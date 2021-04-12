@@ -1,31 +1,35 @@
 const query = require('../db/config');
 
-//Needs to be adjusted to budget logic
+// Needs to be adjusted to budget logic
 class Budget {
-    static getUserBudgets(id){
-        const queryText = 'SELECT * FROM users';
-        return query(queryText).then(results => results.rows);
-    }
+  static getUserBudgets(userId) {
+    const queryText = 'SELECT * FROM budgets WHERE user_id = $1';
+    return query(queryText, [userId]).then((results) => results.rows);
+  }
 
-    static getBudget(id){
-        const queryText = 'SELECT * FROM users WHERE id = $1';
-        return query(queryText, [id]).then(results => results.rows[0]);
-    }
+  static getBudget(id) {
+    const queryText = 'SELECT * FROM budgets WHERE id = $1';
+    return query(queryText, [id]).then((results) => results.rows[0]);
+  }
 
-    static addBudget(name, email, password){
-        const queryText = 'INSERT INTO users (name, email, encrypted_password) VALUES ($1, $2, $3) RETURNING name, email, encrypted_password, id'
-        return query(queryText, [name, email, password]).then(results => results.rows[0]);
-    }
+  static addBudget(userId, budgetAmount, title, description, bannerStyle) {
+    const queryText = 'INSERT INTO budgets (user_id, budget_amount, title, description, banner_style) VALUES ($1, $2, $3, $4, $5) RETURNING user_id, budget_amount, title, description, banner_style';
+    return query(queryText, [userId,
+      budgetAmount,
+      title,
+      description,
+      bannerStyle]).then((results) => results.rows[0]);
+  }
 
-    static removeBudget(id){
-        const queryText = 'DELETE FROM users WHERE id = $1';
-        return query(queryText, [id]);
-    }
+  static removeBudget(id) {
+    const queryText = 'DELETE FROM budgets WHERE id = $1';
+    return query(queryText, [id]);
+  }
 
-    static updateBudget(id, data){
-        const queryText = 'UPDATE users SET name = $2, email = $3, encrypted_password = $4 WHERE id = $1 RETURNING name, email, encrypted_password, id';
-        return query(queryText, [id]).then(results => results.rows[0]);
-    }
+  static updateBudget(budgetAmount, title, description, bannerStyle, id) {
+    const queryText = 'UPDATE budgets SET budget_amount = $1, title = $2, description = $3, banner_style = $4 WHERE id = $5 RETURNING  budget_amount, title, description, banner_style';
+    return query(queryText, [id]).then((results) => results.rows[0]);
+  }
 }
 
 module.exports = Budget;
