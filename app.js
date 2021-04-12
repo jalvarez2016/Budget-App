@@ -1,12 +1,13 @@
 const express = require('express');
-const session = require('express-session');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
 
 const db = require('./db/config.js');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8003;
 
+app.set('trust proxy', 1);
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -23,6 +24,10 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/jquery', express.static('node_modules/jquery/dist'));
 
 app.set('view engine', 'ejs');
+
+app.use('*', (req, res) => {
+  res.status(404).send();
+});
 
 app.get('/logout', (req, res) => {
   req.session.destroy();
