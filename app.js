@@ -1,6 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+
+const apiRouter = require('./routes/apiRouter');
 const userRouter = require('./routes/usersRouter');
 
 const db = require('./db/config.js');
@@ -25,6 +27,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/jquery', express.static('node_modules/jquery/dist'));
 
 app.set('view engine', 'ejs');
+app.use('/api', apiRouter);
 app.use('/users', userRouter);
 app.use('*', (req, res) => {
   res.status(404).send();
