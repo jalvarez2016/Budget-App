@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 const userRouter = require('./routes/usersRouter');
+const budgetRouter = require('./routes/budgetRouter');
 
 const db = require('./db/config.js');
 
@@ -25,7 +26,19 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/jquery', express.static('node_modules/jquery/dist'));
 
 app.set('view engine', 'ejs');
+app.get("/", (req, res) => {
+    res.render('home', {title: "Home Page"});
+});
+app.get('/signup', (req, res) => {
+    res.render('signup', {title: "Sign Up!"});
+});
+app.get('/signin', (req, res) => {
+    res.render('signin', {title: "Sign In!"});
+});
+
 app.use('/users', userRouter);
+app.use('/budgets', budgetRouter);
+
 app.use('*', (req, res) => {
   res.status(404).send();
 });

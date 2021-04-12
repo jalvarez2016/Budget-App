@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <h1>New Budget Form Page</h1>
+        <form action="/budgets" method="POST">
+            <label for="banner_style">Banner Style</label>
+            <br>
+            <input type="number" name="banner_style" placeholder="Banner Style">
+            <br>
+            <label for="title">Title</label>
+            <br>
+            <input name="title" placeholder="Title">
+            <br>
+            <label for="description">Description</label>
+            <br>
+            <input name="description" placeholder="Description">
+            <br>
+            <label for="budget_amount">Total / Limit</label>
+            <br>
+            <input type="number" name="budget_amount" placeholder="$1000">
+            <br>
+            <label>Other options</label>
+            <br>
+            <!-- Add extra options here later -->
+            <input type="submit" value="Add Budget">
+        </form>
+    </body>
+</html>
