@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 8003;
 
 app.set('trust proxy', 1);
 app.use(session({
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || 'secret',
   resave: false,
   saveUninitialized: false,
   name: 'BudgetApp'
