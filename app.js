@@ -1,6 +1,8 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+
+const apiRouter = require('./routes/apiRouter');
 const userRouter = require('./routes/usersRouter');
 const budgetRouter = require('./routes/budgetRouter');
 
@@ -36,6 +38,7 @@ app.get('/signin', (req, res) => {
     res.render('signin', {title: "Sign In!"});
 });
 
+app.use('/api', apiRouter);
 app.use('/users', userRouter);
 app.use('/budgets', budgetRouter);
 
