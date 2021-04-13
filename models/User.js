@@ -28,9 +28,14 @@ class User {
   }
 
   // needs more data
-  static updateUser(id, firstname, lastname, email, birthday, password) {
-    const queryText = 'UPDATE users SET firstname = $2, lastname = $3, email = $4, birthday = $5, encrypted_password = $6 WHERE id = $1 RETURNING *;';
-    return query(queryText, [id, firstname, lastname, email, birthday, password]).then((results) => results.rows[0]);
+  static updateUser(id, firstname, lastname, email, birthday) {
+    const queryText = 'UPDATE users SET firstname = $2, lastname = $3, email = $4, birthday = $5 WHERE id = $1 RETURNING *;';
+    return query(queryText, [id, firstname, lastname, email, birthday]).then((results) => results.rows[0]);
+  }
+
+  static changePassword(id, newPassword) {
+    const queryText = 'UPDATE users SET encrypted_password = $2 WHERE id = $1;';
+    return query(queryText, [id, newPassword]).then((results) => results.rows[0]);
   }
 }
 
