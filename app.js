@@ -28,14 +28,14 @@ app.use(express.static('public'));
 // app.use('/jquery', express.static('node_modules/jquery/dist'));
 
 app.set('view engine', 'ejs');
-app.get('/', (req, res) => {
-  res.render('home', { title: 'Home Page' });
-});
 app.get('/signup', (req, res) => {
-  res.render('signup', { title: 'Sign Up!' });
+  res.render('signup', { title: 'Sign Up!', user: req.session.user  });
 });
 app.get('/signin', (req, res) => {
-  res.render('signin', { title: 'Sign In!' });
+  res.render('signin', { title: 'Sign In!', user: req.session.user  });
+});
+app.get('/', (req, res) => {
+  res.render('home', { title: 'Home Page', user: req.session.user });
 });
 
 app.use('/api', apiRouter);

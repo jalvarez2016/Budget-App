@@ -25,7 +25,7 @@ CREATE TABLE items (
         check(rating >= 0 and rating <= 5),
     title TEXT,
     description TEXT,
-    count TINYINT,
+    count INT,
     purchase_date DATE
 );
 
@@ -33,3 +33,5 @@ CREATE TABLE banners (
     ID SERIAL PRIMARY KEY,
     name TEXT
 );
+
+INSERT INTO banners (name) VALUES ('money');

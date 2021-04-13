@@ -17,8 +17,24 @@
                             <!-- Add AJAX for this form -->
                             <input type="submit" value="Delete">
                         </form>
+                        <form action="/budgets/new" method="GET">
+                            <input type="hidden" value="<%= user.id %>">
+                            <input type="submit" value="New Budget">
+                        </form>
                     </div>
                 </div>
+            </div>
+            <div class="budgets">
+                <% for (const budget of user.budgets) {%>
+                    <div class="budget-cont">
+                        <a href="/budgets/<%= budget.id %>">
+                            <h3><%= budget.title %></h3>
+                            <div class="budget-info">
+                                <p><%= budget.budget_amount %></p>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
             </div>
         </div>
     </body>

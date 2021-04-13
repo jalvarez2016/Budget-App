@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 const getUser = async (req, res) => {
   try{            
     const user = await User.getUser(req.params.id);
-    // const budgets = await Budget.getUserBudgets(user.id);
-    // user.budgets = budgets;
+    const budgets = await Budget.getUserBudgets(user.id);
+    user.budgets = budgets;
     res.render('user', {title: `${user.firstname}'s Page`, user});
   } catch (e) {
     console.error(e);

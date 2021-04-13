@@ -1,15 +1,37 @@
 <nav>
     <div class="logo">
-        <h2>Logo</h2>
+        <a href="/">
+            <h2>Logo</h2>
+        </a>
     </div>
     <div class="side-btns">
-        <div>
-            <!-- have an ejs conditional here using user -->
-            <button>Button 1</button>
-        </div>
-        <div>
-            <!-- have an ejs conditional here using user -->
-            <button>Button 2</button>
-        </div>
+        <% if (user) { %>
+            <div>
+                <!-- have an ejs conditional here using user -->
+                <a href="/users/<%= user.id %>">
+                    <button>Profile</button>
+                </a>
+            </div>
+            <div>
+                <!-- have an ejs conditional here using user -->
+                <form action="/budgets/new" method="GET">
+                    <input type="hidden" value="<%= user.id %>">
+                    <input type="submit" value="New Budget">
+                </form>
+            </div>
+        <% } else { %>
+            <div>
+                <!-- have an ejs conditional here using user -->
+                <a href="/signup">
+                    <button>Sign Up</button>
+                </a>
+            </div>
+            <div>
+                <!-- have an ejs conditional here using user -->
+                <a href="/signin">
+                    <button>Sign In</button>
+                </a>
+            </div>
+        <% } %>
     </div>
 </nav>
