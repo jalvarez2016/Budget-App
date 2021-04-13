@@ -4,7 +4,8 @@ const getBudget = async (req, res) => {
   try {
     const budget = await Budget.getBudget(req.params.id);
     res.render('budget', { title: `${budget.title}`, budget });
-  } catch {
+  } catch (e) {
+    console.error(e);
     res.sendStatus(500);
   }
 };
@@ -13,7 +14,8 @@ const addBudget = async (req, res) => {
   try {
     const { user } = req.session;
     res.render('addBudget', { title: 'New Budget', user });
-  } catch {
+  } catch (e) {
+    console.error(e);
     res.sendStatus(500);
   }
 };
@@ -24,7 +26,8 @@ const newBudget = async (req, res) => {
     const data = req.body;
     data.user_id = req.params.id;
     console.log(data);
-  } catch {
+  } catch (e) {
+    console.error(e);
     res.sendStatus(500);
   }
 };
@@ -33,7 +36,8 @@ const editBudget = async (req, res) => {
   try {
     const budget = await Budget.getBudget(req.params.id);
     res.render('editBudget', { title: `Editing ${budget.title}`, budget });
-  } catch {
+  } catch (e) {
+    console.error(e);
     res.sendStatus(500);
   }
 };

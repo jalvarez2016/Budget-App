@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const User = require('../../models/User');
 
 const getUsers = async (req, res) => {
@@ -12,14 +13,17 @@ const getUsers = async (req, res) => {
 
 const addUser = async (req, res) => {
   try {
-    const addedUser = await User.addUser(
-      req.body.firstname,
-      req.body.lastname,
-      req.body.email,
-      req.body.birthday,
-      req.body.encrypted_password
-    );
-    res.status(200).json({ msg: 'User created successfully', data: addedUser });
+    bcrypt.hash(req.body.password, 10, async (err, hash) => {
+      if (err) throw new Error(err);
+      const addedUser = await User.addUser(
+        req.body.firstname,
+        req.body.lastname,
+        req.body.email,
+        req.body.birthday,
+        hash
+      );
+      res.status(200).json({ msg: 'User created successfully', data: addedUser });
+    });
   } catch (e) {
     console.error(e);
     res.sendStatus(500);
@@ -33,10 +37,22 @@ const updateUser = async (req, res) => {
       req.body.firstname,
       req.body.lastname,
       req.body.email,
-      req.body.birthday,
-      req.body.encrypted_password
+      req.body.birthday
     );
     res.status(200).json({ msg: `User id:${req.params.id} updated successfully`, data: updatedUser });
+  } catch (e) {
+    console.error(e);
+    res.sendStatus(500);
+  }
+};
+
+const changePassword = async (req, res) => {
+  try {
+    bcrypt.hash(req.body.password, 10, async (err, hash) => {
+      if (err) throw new Error(err);
+      await User.changePassword(req.params.id, hash);
+      res.status(200).json({ msg: `Password for user id:${req.params.id} changed successfully` });
+    });
   } catch (e) {
     console.error(e);
     res.sendStatus(500);
@@ -68,5 +84,6 @@ module.exports = {
   addUser,
   deleteUser,
   updateUser,
+  changePassword,
   getUser
 };

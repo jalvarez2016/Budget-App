@@ -9,6 +9,7 @@ router.get('/:id', usersController.getUser);
 router.post('/', usersController.addUser);
 
 router.patch('/:id', usersController.updateUser);
+router.patch('/:id/password', usersController.changePassword);
 
 router.delete('/:id', usersController.deleteUser);
 
