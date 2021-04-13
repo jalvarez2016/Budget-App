@@ -11,14 +11,14 @@ class User {
     return query(queryText, [id]).then((results) => results.rows[0]);
   }
 
-  static findUser(email){
+  static findUser(email) {
     const queryText = 'SELECT * FROM users WHERE email = $1';
-    return query(queryText, [email]).then((result) => results.rows[0]);
+    return query(queryText, [email]).then((results) => results.rows[0]);
   }
 
   // needs to have more data pushed into database
   static addUser(firstname, lastname, email, birthday, password) {
-    const queryText = `INSERT INTO users (firstname, lastname, email, birthday, encrypted_password) VALUES ($1, $2, $3, $4, $5) RETURNING *;`;
+    const queryText = 'INSERT INTO users (firstname, lastname, email, birthday, encrypted_password) VALUES ($1, $2, $3, $4, $5) RETURNING *;';
     return query(queryText, [firstname, lastname, email, birthday, password]).then((results) => results.rows[0]);
   }
 
@@ -28,9 +28,9 @@ class User {
   }
 
   // needs more data
-  static updateUser(id, name, email, password) {
-    const queryText = 'UPDATE users SET name = $2, email = $3, encrypted_password = $4 WHERE id = $1 RETURNING name, email, encrypted_password, id';
-    return query(queryText, [id, name, email, password]).then((results) => results.rows[0]);
+  static updateUser(id, firstname, lastname, email, birthday, password) {
+    const queryText = 'UPDATE users SET firstname = $2, lastname = $3, email = $4, birthday = $5, encrypted_password = $6 WHERE id = $1 RETURNING *;';
+    return query(queryText, [id, firstname, lastname, email, birthday, password]).then((results) => results.rows[0]);
   }
 }
 
