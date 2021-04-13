@@ -8,7 +8,7 @@ const budgetsController = require('../controllers/budgetsController');
 router.post('/login', usersController.loginUser);
 // router.get('/new', usersController.addUserView);
 router.get('/:id', usersController.getUser);
-// router.get('/:id/edit', usersController.getUserEdit);
+router.get('/:id/edit', usersController.getUserEdit);
 router.post('/', usersController.addUser);
 // router.post('/login', usersController.loginUser);
 // router.post('/logout', usersController.logoutUser);

@@ -3,6 +3,23 @@
     <%- include('./partials/head.ejs') %>
     <body>
         <%- include('./partials/nav.ejs') %>
-        <h1><%= user.firstname %> <%= user.lastname %></h1>
+        <div class="main-content">
+            <div class="user">
+                <div class="user-img">
+                </div>
+                <div class="user-info">
+                    <h1><%= user.firstname %> <%= user.lastname %></h1>
+                    <div class="user-btns">
+                        <form action="/users/<%= user.id %>/edit" method="GET">
+                            <input type="submit" value="Edit">
+                        </form>
+                        <form id="userDelete">
+                            <!-- Add AJAX for this form -->
+                            <input type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

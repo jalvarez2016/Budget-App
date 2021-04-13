@@ -1,9 +1,12 @@
 const User = require('../models/User');
+const Budget = require('../models/Budget');
 const bcrypt = require('bcrypt');
 
 const getUser = async (req, res) => {
     try{            
         const user = await User.getUser(req.params.id);
+        // const budgets = await Budget.getUserBudgets(user.id);
+        // user.budgets = budgets;
         res.render('user', {title: `${user.firstname}'s Page`, user});
     } catch {
         res.sendStatus(500);
@@ -40,8 +43,19 @@ const loginUser = async (req, res) => {
     }
 }
 
+const getUserEdit = async (req, res) => {
+    try {
+        const user = await User.getUser(req.params.id);
+        res.render('editUser', {title: 'Editing User', user});
+    } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+    }
+}
+
 module.exports = {
     getUser,
     addUser,
-    loginUser
+    loginUser,
+    getUserEdit
 }
