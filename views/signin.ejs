@@ -2,6 +2,18 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
     <body>
+        <%- include('./partials/nav.ejs') %>
         <h1>Sign In</h1>
+        <form action="/users/login" method="POST">
+            <label for='email'>Email</label>
+            <br>
+            <input name='email' placeholder="johndoe@gmail.com">
+            <br>
+            <label for='password'>Password</label>
+            <br>
+            <input type="password" name="password" placeholder="password">
+            <br>
+            <input type="submit" value="Sign In">
+        </form>
     </body>
 </html>

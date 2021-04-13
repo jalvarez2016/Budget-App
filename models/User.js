@@ -11,10 +11,15 @@ class User {
     return query(queryText, [id]).then((results) => results.rows[0]);
   }
 
+  static findUser(email){
+    const queryText = 'SELECT * FROM users WHERE email = $1';
+    return query(queryText, [email]).then((result) => results.rows[0]);
+  }
+
   // needs to have more data pushed into database
-  static addUser(name, email, password) {
-    const queryText = 'INSERT INTO users (firstname, email, encrypted_password) VALUES ($1, $2, $3) RETURNING firstname, email, encrypted_password, id';
-    return query(queryText, [name, email, password]).then((results) => results.rows[0]);
+  static addUser(firstname, lastname, email, birthday, password) {
+    const queryText = `INSERT INTO users (firstname, lastname, email, birthday, encrypted_password) VALUES ($1, $2, $3, $4, $5) RETURNING *;`;
+    return query(queryText, [firstname, lastname, email, birthday, password]).then((results) => results.rows[0]);
   }
 
   static removeUser(id) {

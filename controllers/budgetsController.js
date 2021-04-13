@@ -11,7 +11,8 @@ const getBudget = async (req, res) => {
 
 const addBudget = async (req, res) => {
     try {
-        res.render('addBudget',  {title: 'New Budget'});
+        const {user} = req.session;
+        res.render('addBudget',  {title: 'New Budget', user});
     } catch {
         res.sendStatus(500);
     }
@@ -21,6 +22,7 @@ const addBudget = async (req, res) => {
 const newBudget = async (req, res) => {
     try {
         const data = req.body;
+        data.user_id = req.params.id;
         console.log(data);
     } catch {
         res.sendStatus(500);
