@@ -18,7 +18,7 @@ CREATE TABLE budgets (
 
 CREATE TABLE items (
     ID SERIAL PRIMARY KEY,
-    budget_id INT REFERENCES banners(id),
+    budget_id INT REFERENCES budgets(id),
     price MONEY,
     rating INT,
     constraint rating_range_check
@@ -27,7 +27,6 @@ CREATE TABLE items (
     description TEXT,
     count INT,
     purchase_date DATE
-
 );
 
 CREATE TABLE banners (

@@ -35,7 +35,11 @@
                     <button>Add Item</button>
                 </a>
             </div>
-
+            <section class="item-grid">
+              <% items.forEach((item) => { %>
+                <a data-item-id="<%= item.id %>"><%= item.title %></a>
+              <% }) %>
+            </section>
         </div>
     </body>
 </html>

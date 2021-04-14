@@ -6,6 +6,11 @@ class Item {
     return query(queryText, [id]).then((results) => results.rows[0]);
   }
 
+  static getItemsByBudget(budgetId) {
+    const queryText = 'SELECT * FROM items WHERE budget_id = $1';
+    return query(queryText, [budgetId]).then((results) => results.rows);
+  }
+
   static addItem(budgetId, price, rating, title, description, count, purchaseDate) {
     const queryText = 'INSERT INTO items (budget_id, price, rating, title, description, count, purchase_date) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
     return query(queryText, [budgetId,

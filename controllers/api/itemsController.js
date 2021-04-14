@@ -11,6 +11,16 @@ const getItem = async (req, res) => {
   }
 };
 
+const getItemsByBudget = async (req, res) => {
+  try {
+    const items = await Item.getItemsByBudget(req.params.id);
+    res.status(200).json(items);
+  } catch (e) {
+    console.error(e);
+    res.sendStatus(500);
+  }
+};
+
 const createItem = async (req, res) => {
   try {
     const {
@@ -63,6 +73,7 @@ const updateItem = async (req, res) => {
 
 module.exports = {
   getItem,
+  getItemsByBudget,
   updateItem,
   createItem,
   deleteItem

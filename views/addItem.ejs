@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
-    <body>
-        <h1>New Budget Form Page</h1>
-        <form action="/items" method="POST">
-            <label for="title">Title</label>
-            <br>
-            <input name="title" placeholder="Title">
-            <br>
-            <label for="description">Description of Item</label>
-            <br>
-            <input name="description" placeholder="Description">
-            <br>
-            <label for="price">Price(1)</label>
-            <br>
-            <input type="number" name="price" placeholder="$10">
-            <br>
-            <label for="count">Amount</label>
-            <br>
-            <input type="number" name="count" placeholder="10">
-            <br>
-            <label for="rating">Rating</label>
-            <br>
-            <input type="number" name="rating" placeholder="5">
-            <br>
-            <input type="hidden" name="budget_id" value="<%=budget.id%>">
-            <br>
-            <input type="submit" value="Add Budget">
-        </form>
-    </body>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <h1>New Budget Item</h1>
+    <span>Adding a new item to "<%= budget.title %>"</span>
+    <form id="addItemForm">
+      <div class="input-group">
+        <label for="title">Title</label>
+        <input name="title" placeholder="Title">
+      </div>
+      <div class="input-group">
+        <label for="description">Description of Item</label>
+        <input name="description" placeholder="Description">
+      </div>
+      <div class="input-group">
+        <label for="price">Unit Price</label>
+        <input type="number" name="price" placeholder="$10">
+      </div>
+      <div class="input-group">
+        <label for="count">Amount</label>
+        <input type="number" name="count" placeholder="10">
+      </div>
+      <div class="input-group">
+        <label for="purchaseDate">Date Purchased</label>
+        <input type="date" name="purchaseDate">
+      </div>
+      <label for="rating">Rating</label>
+      <input type="number" name="rating" placeholder="5">
+      <input type="hidden" name="budgetId" value="<%= budget.id %>">
+      <input type="submit" value="Add Budget">
+    </form>
+  </body>
+  <script src="/js/addItem.js" charset="utf-8"></script>
 </html>
