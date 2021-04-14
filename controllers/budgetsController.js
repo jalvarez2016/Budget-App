@@ -13,7 +13,7 @@ const getBudget = async (req, res) => {
 const addBudget = async (req, res) => {
   try {
     const { user } = req.session;
-    console.log(user);
+    console.log(req.session);
     res.render('addBudget', { title: 'New Budget', user, user: req.session.user });
   } catch (e) {
     console.error(e);
@@ -23,7 +23,9 @@ const addBudget = async (req, res) => {
 
 const newBudget = async (req, res) => {
   try {
-    const {budget_amount, title, description, banner_style} = req.body;
+    const {
+      budget_amount, title, description, banner_style
+    } = req.body;
     const user_id = req.session.user.id;
     const budget = await Budget.addBudget(user_id, budget_amount, title, description, banner_style);
     res.redirect(`/users/${user_id}`);

@@ -1,18 +1,19 @@
+const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const Budget = require('../models/Budget');
-const bcrypt = require('bcrypt');
+const utils = require('../utils.js');
 
 const getUser = async (req, res) => {
-  try{            
+  try {
     const user = await User.getUser(req.params.id);
     const budgets = await Budget.getUserBudgets(user.id);
     user.budgets = budgets;
-    res.render('user', {title: `${user.firstname}'s Page`, user});
+    res.render('user', { title: `${user.firstname}'s Page`, user });
   } catch (e) {
     console.error(e);
     res.sendStatus(500);
-}
-}
+  }
+};
 
 const addUser = async (req, res) => {
   try {
@@ -49,18 +50,19 @@ const loginUser = async (req, res) => {
 };
 
 const getUserEdit = async (req, res) => {
-    try {
-        const user = await User.getUser(req.params.id);
-        res.render('editUser', {title: 'Editing User', user});
-    } catch (e) {
-        console.log(e);
-        res.sendStatus(500);
-    }
-}
+  try {
+    const user = await User.getUser(req.params.id);
+    user.birthday = utils.formatDate(user.birthday);
+    res.render('editUser', { title: 'Editing User', user });
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+};
 
 module.exports = {
-    getUser,
-    addUser,
-    loginUser,
-    getUserEdit
-}
+  getUser,
+  addUser,
+  loginUser,
+  getUserEdit
+};

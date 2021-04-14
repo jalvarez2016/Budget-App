@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
-    <body>
-        <%- include('./partials/nav.ejs') %>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <main class="signup-in-main">
+      <section class="signup-in-left"></section>
+      <section class="signup-in-right">
         <h1>Sign Up</h1>
         <form action="/users" method="POST">
-            <label for="firstname">First Name</label>
-            <br>
-            <input name="firstname" placeholder="John">
-            <br>
-            <label for="lastname">Last Name</label>
-            <br>
-            <input name="lastname" placeholder="Doe">
-            <br>
+          <span class="signup-name-group">
+            <div class="input-group">
+              <label for="firstname">First Name</label>
+              <input name="firstname" placeholder="John">
+            </div>
+            <div class="input-group">
+              <label for="lastname">Last Name</label>
+              <input name="lastname" placeholder="Doe">
+            </div>
+          </span>
+          <div class="input-group">
             <label for="Email">Email</label>
-            <br>
             <input name="email" placeholder="johndoe@gmail.com">
-            <br>
+          </div>
+          <div class="input-group">
             <label for="birthday">Date Of Birth</label>
-            <br>
             <input type="date" name="birthday">
-            <br>
+          </div>
+          <div class="input-group">
             <label for="password">Password</label>
-            <br>
             <input name="password" type="password">
-            <br>
-            <input type="submit" value="Sign Up!">
+          </div>
+          <input class="signup-in-button" type="submit" value="Create Account">
         </form>
-    </body>
+      </section>
+    </main>
+  </body>
 </html>

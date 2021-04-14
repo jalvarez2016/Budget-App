@@ -3,17 +3,22 @@
     <%- include('./partials/head.ejs') %>
     <body>
         <%- include('./partials/nav.ejs') %>
-        <h1>Sign In</h1>
-        <form action="/users/login" method="POST">
-            <label for='email'>Email</label>
-            <br>
-            <input name='email' placeholder="johndoe@gmail.com">
-            <br>
-            <label for='password'>Password</label>
-            <br>
-            <input type="password" name="password" placeholder="password">
-            <br>
-            <input type="submit" value="Sign In">
-        </form>
+        <main class="signup-in-main">
+          <section class="signup-in-left"></section>
+          <section class="signup-in-right">
+            <h1>Sign In</h1>
+            <form action="/users/login" method="POST">
+              <div class="input-group">
+                <label for='email'>Email</label>
+                <input name='email' placeholder="johndoe@gmail.com">
+              </div>
+              <div class="input-group">
+                <label for='password'>Password</label>
+                <input type="password" name="password" placeholder="password">
+              </div>
+              <input class="signup-in-button" type="submit" value="Sign In">
+            </form>
+          </section>
+        </main>
     </body>
 </html>

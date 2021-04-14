@@ -1,0 +1,50 @@
+.signup-in-main {
+  display: flex;
+  flex: 1;
+}
+
+.signup-in-left {
+  width: 75%;
+  background-color: grey;
+}
+
+.signup-in-right {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5em;
+  padding: 0 5%;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0.4em 0;
+}
+
+.signup-name-group .input-group {
+  width: 45%;
+}
+
+.signup-name-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.signup-in-right form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.signup-in-right input {
+  width: 100%;
+  height: 2.5em;
+}
+
+.signup-in-button {
+  width: 50%!important;
+  align-self: center;
+}

@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
-    <body>
-        <%- include('./partials/nav.ejs') %>
-        <div class="main-content">
-            <div>
-                <h1><%= user.firstname %> <%= user.lastname %> Edit</h1>
-                <div>
-                    <form id="editUserForm">
-                        <!-- Use AJAX to make this PATCH request -->
-                        <label for="firstname">First Name</label>
-                        <br>
-                        <input name="firstname" value="<%= user.firstname %>">
-                        <br>
-                        <label for="lastname">Last Name</label>
-                        <br>
-                        <input name="lastname" value="<%= user.lastname %>">
-                        <br>
-                        <label for="Email">Email</label>
-                        <br>
-                        <input name="email" value="<%= user.email %>">
-                        <br>
-                        <label for="birthday">Date Of Birth</label>
-                        <br>
-                        <input type="date" name="birthday" value="<%= user.birthday %>">
-                        <br>
-                        <!-- <label for="password">Password</label>
-                        <br> -->
-                        <!-- <input name="password" type="password" value="<%= user.encrypted_password %>">
-                        <br> -->
-                        <input type="submit" value="Submit Changes">
-                    </form>
-                </div>
-            </div>
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="main-content">
+      <div>
+        <h1><%= user.firstname %> <%= user.lastname %> Edit</h1>
+        <div>
+          <form id="editUserForm">
+            <!-- Use AJAX to make this PATCH request -->
+            <label for="firstname">First Name</label><br>
+            <input name="firstname" value="<%= user.firstname %>"><br>
+            <label for="lastname">Last Name</label><br>
+            <input name="lastname" value="<%= user.lastname %>"><br>
+            <label for="Email">Email</label><br>
+            <input name="email" value="<%= user.email %>"><br>
+            <label for="birthday">Date Of Birth</label><br>
+            <input type="date" name="birthday" value="<%= user.birthday %>"><br>
+            <input type="submit" value="Submit Changes">
+          </form>
         </div>
-    </body>
+      </div>
+    </div>
+  </body>
+  <script src="/js/utils.js" charset="utf-8"></script>
+  <script src="/js/editUser.js" charset="utf-8"></script>
 </html>
