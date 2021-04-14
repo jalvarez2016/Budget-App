@@ -1,11 +1,15 @@
 const Budget = require('../models/Budget');
 const Banner = require('../models/Banner');
+const Item = require('../models/Item');
 
 const getBudget = async (req, res) => {
   try {
+    const items = await Item.getItemsByBudget(req.params.id);
     const budget = await Budget.getBudget(req.params.id);
     budget.banner = await Banner.getBanner(budget.banner_style);
-    res.render('budget', { title: `${budget.title}`, budget, user: req.session.user });
+    res.render('budget', {
+      title: budget.title, budget, items, user: req.session.user
+    });
   } catch (e) {
     console.error(e);
     res.sendStatus(500);
