@@ -14,7 +14,7 @@ const getItem = async (req, res) => {
 const createItem = async (req, res) => {
   try {
     const {
-      budgetId, price, rating, title, description, count, purchaseDate, img
+      budgetId, price, rating, title, description, count, purchaseDate
     } = req.body;
     const createdItem = await Item.addItem(budgetId,
       price,
@@ -22,8 +22,7 @@ const createItem = async (req, res) => {
       title,
       description,
       count,
-      purchaseDate,
-      img);
+      purchaseDate);
     res.status(201).json(createdItem);
   } catch (e) {
     console.error(e);
@@ -44,7 +43,7 @@ const deleteItem = async (req, res) => {
 const updateItem = async (req, res) => {
   try {
     const {
-      price, rating, title, description, count, purchaseDate, img
+      price, rating, title, description, count, purchaseDate
     } = req.body;
     const updatedItem = await Item.updateItem(
       price,
@@ -53,7 +52,6 @@ const updateItem = async (req, res) => {
       description,
       count,
       purchaseDate,
-      img,
       req.params.id
     );
     res.status(200).json(updatedItem);
