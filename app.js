@@ -5,6 +5,7 @@ const session = require('express-session');
 const apiRouter = require('./routes/apiRouter');
 const userRouter = require('./routes/usersRouter');
 const budgetRouter = require('./routes/budgetRouter');
+const itemsRouter = require('./routes/itemsRouter');
 
 const db = require('./db/config.js');
 
@@ -45,6 +46,7 @@ app.get('/', (req, res) => {
 app.use('/api', apiRouter);
 app.use('/users', userRouter);
 app.use('/budgets', budgetRouter);
+app.use('/items', itemsRouter);
 
 app.use('*', (req, res) => {
   res.status(404).send();

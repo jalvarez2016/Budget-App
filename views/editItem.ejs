@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <h1>Changing Budget Item</h1>
+    <!-- Use PATCH AJAX on this form -->
+    <form id="addItemForm">
+      <div class="input-group">
+        <label for="title">Title</label>
+        <input name="title" placeholder="<%= item.title %>">
+      </div>
+      <div class="input-group">
+        <label for="description">Description of Item</label>
+        <input name="description" placeholder="<%= item.description %>">
+      </div>
+      <div class="input-group">
+        <label for="price">Unit Price</label>
+        <input type="number" name="price" placeholder="<%= item.price %>">
+      </div>
+      <div class="input-group">
+        <label for="count">Amount</label>
+        <input type="number" name="count" placeholder="<%= item.count %>">
+      </div>
+      <div class="input-group">
+        <label for="purchaseDate">Date Purchased</label>
+        <input type="date" name="purchase_date" placeholder="<%= item.purchase_date %>">
+      </div>
+      <label for="rating">Rating</label>
+      <input type="number" name="rating" placeholder="<%= item.rating %>">
+      <input type="hidden" name="budgetId" value="<%= item.budget_id %>">
+      <input type="submit" value="Submit Changes">
+    </form>
+  </body>
+  <!-- <script src="/js/addItem.js" charset="utf-8"></script> -->
+</html>

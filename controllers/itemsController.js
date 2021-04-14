@@ -5,7 +5,8 @@ const getItem = async (req, res) => {
   try {
     const item = await Item.getItem(req.params.id);
     const budget = await Budget.getBudget(item.budget_id);
-    res.render('item', { title: `${budget.title}`, item, user: req.session.user });
+    budget.items = await Item.getItemsByBudget(budget.id);
+    res.render('item', { title: `${budget.title}`, item, budget, user: req.session.user });
   } catch (e) {
     console.error(e);
     res.sendStatus(500);

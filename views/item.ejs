@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="main-content">
+            <div class="item-section">
+                <div class="budget-banner budget-banner-mini banner-<%= budget.banner %>">
+                    <div class="budget-info-btn">
+                        <div class="budget-icon">i</div>
+                    </div>
+                    <div>
+                        <h3><%= budget.title %></h3>
+                    </div>
+                </div>
+                <div class="budget-desc">
+                    <p><%= budget.description %></p>
+                </div>
+                <div class="main-item">
+                    <h4><%= item.title %></h4>
+                    <h5><%= item.price %></h5>
+                    <p><%= item.purchase_date %></p>
+                    <div class="<%= item.rating %>">
+                        <%= item.rating %>
+                    </div>
+                    <div class="item-cost">
+                        <p><%= item.price%></p>
+                        <p><%= item.count%></p>
+                    </div>
+                    <p><%= item.description%></p>
+                    <div class="item-change-btns">
+                        <form action="/items/<%=item.id%>/edit" method="GET">
+                            <input type="submit" value="Edit">
+                        </form>
+                        <!-- Use AJAX here to delete -->
+                        <form>
+                            <input type="submit" value="Delete">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% budget.items.forEach((itm) => { if(itm.id !== item.id){ %>
+            <a href="/items/<%=itm.id%>" data-item-id="<%= itm.id %>">
+                <h4><%= itm.title %></h4>
+                <h5><%= itm.price %></h5>
+                <div class="<%= itm.rating %>">
+                    <%= itm.rating %>
+                </div>
+            </a>
+            <%} }) %>
+        </div>
+    </body>
+</html>

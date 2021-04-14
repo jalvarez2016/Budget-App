@@ -8,7 +8,6 @@
                 <div class="budget-info-btn">
                     <div class="budget-icon">i</div>
                 </div>
-                <!-- user banner style here -->
                 <div>
                     <h3><%= budget.title %></h3>
                     <h4><%= user.firstname %> <%= user.lastname %></h4>
@@ -39,7 +38,15 @@
             </div>
             <section class="item-grid">
               <% items.forEach((item) => { %>
-                <a data-item-id="<%= item.id %>"><%= item.title %></a>
+                <div class="budget-item">
+                    <a href="/items/<%=item.id%>" data-item-id="<%= item.id %>">
+                        <h4><%= item.title %></h4>
+                        <h5><%= item.price %></h5>
+                        <div class="<%= item.rating %>">
+                            <%= item.rating %>
+                        </div>
+                    </a>
+                </div>
               <% }) %>
             </section>
         </div>
