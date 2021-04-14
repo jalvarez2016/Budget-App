@@ -26,8 +26,8 @@ const addItem = async (req, res) => {
 
 const newItem = async (req, res) => {
   try {
-    const {budget_id, price, rating, title, description, count, purchase_date, img} = req.body;
-    await Item.addItem(budget_id, price, rating, title, description, count, purchase_date, img);
+    const {budget_id, price, rating, title, description, count, purchase_date} = req.body;
+    await Item.addItem(budget_id, price, rating, title, description, count, purchase_date);
     res.redirect(`/budgets/${budget_id}`);
     console.log(data);
   } catch (e) {
