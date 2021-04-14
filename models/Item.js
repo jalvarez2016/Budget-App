@@ -12,7 +12,7 @@ class Item {
   }
 
   static addItem(budgetId, price, rating, title, description, count, purchaseDate, img) {
-    const queryText = 'INSERT INTO items (budget_idd, price, rating, title, description, count, purchase_date, img) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING name, email, encrypted_password, id';
+    const queryText = 'INSERT INTO items (budget_id, price, rating, title, description, count, purchase_date, img) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING name, email, encrypted_password, id';
     return query(queryText, [budgetId,
       price,
       rating,

@@ -2,7 +2,40 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
     <body>
-        <h1>A Specific Budget</h1>
-        <p>Not yet properly implemented</p>
+        <%- include('./partials/nav.ejs') %>
+        <div class="main-content">
+            <div class="budget-banner banner-<%= budget.banner_style %>">
+                <div class="budget-info-btn">
+                    <div class="budget-icon">i</div>
+                </div>
+                <!-- user banner style here -->
+                <div>
+                    <h3><%= budget.title %></h3>
+                    <h4><%= user.firstname %> <%= user.lastname %></h4>
+                </div>
+            </div>
+            <div class="budget-info">
+                <div class="budget-info-bit">Total Money
+                    <br>
+                    <%= budget.budget_amount %>
+                </div>
+                <div class="budget-info-bit">Money Spent
+                    <br>
+                </div>
+                <div class="budget-info-bit">Money Left
+                    <br>
+                </div>
+            </div>
+            <div class="budget-desc">
+                <p><%= budget.description %></p>
+            </div>
+            <div class="budget-itm-heading">
+                <h3>Items</h3>
+                <a href="/budgets/<%= budget.id %>/items/new">
+                    <button>Add Item</button>
+                </a>
+            </div>
+
+        </div>
     </body>
 </html>
