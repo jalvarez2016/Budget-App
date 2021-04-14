@@ -26,8 +26,7 @@ CREATE TABLE items (
     title TEXT,
     description TEXT,
     count INT,
-    purchase_date DATE,
-    img BYTEA
+    purchase_date DATE
 
 );
 
