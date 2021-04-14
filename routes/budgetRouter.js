@@ -9,7 +9,8 @@ router.get('/new', budgetsController.addBudget);
 router.use('/:id', usersController.verifyUser);
 router.get('/:id', budgetsController.getBudget);
 router.get('/:id/edit', budgetsController.editBudget);
-router.get('/:id/items/new', itemsController.addItem)
+router.get('/:id/items/new', itemsController.addItem);
+router.get('/:id/analyze', budgetsController.analyzeBudget);
 
 router.post('/', budgetsController.newBudget);
 

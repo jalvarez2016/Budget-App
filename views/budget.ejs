@@ -6,7 +6,9 @@
         <div class="main-content">
             <div class="budget-banner banner-<%= budget.banner %>">
                 <div class="budget-info-btn">
-                    <div class="budget-icon">i</div>
+                    <a href="/budgets/<%= budget.id%>/analyze">
+                        <div class="budget-icon">i</div>
+                    </a>
                 </div>
                 <div>
                     <h3><%= budget.title %></h3>

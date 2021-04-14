@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="main-content">
+            <div class="budget-banner banner-<%= budget.banner %>">
+                <div class="budget-info-btn">
+                    <a href="/budgets/<%= budget.id%>/analyze">
+                        <div class="budget-icon">i</div>
+                    </a>
+                </div>
+                <div>
+                    <h3><%= budget.title %></h3>
+                    <h4><%= user.firstname %> <%= user.lastname %></h4>
+                </div>
+            </div>
+            <div class="budget-analysis">
+                <h3><%= (budget.spent / parseInt(budget.budget_amount.slice(1).split(',').join('')) * 100) %>%</h3>
+                <h4><%= budget.spent %></h4>
+            </div>
+            <section class="item-grid">
+                <div class="budget-analysis-icon">
+                    <div class="analyze-icon">
+                        Icon
+                    </div>
+                    <div class="analyze-desc">
+                        Description
+                    </div>
+                </div>
+                <div class="budget-analysis-icon">
+                    <div class="analyze-icon">
+                        Icon
+                    </div>
+                    <div class="analyze-desc">
+                        Description
+                    </div>
+                </div>
+                <div class="budget-analysis-icon">
+                    <div class="analyze-icon">
+                        Icon
+                    </div>
+                    <div class="analyze-desc">
+                        Description
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
