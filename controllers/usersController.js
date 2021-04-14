@@ -6,6 +6,7 @@ const utils = require('../utils.js');
 const getUser = async (req, res) => {
   try {
     const user = req.session.user;
+    console.log(user);
     const budgets = await Budget.getUserBudgets(user.id);
     user.budgets = budgets;
     res.render('user', { title: `${user.firstname}'s Page`, user });
@@ -34,6 +35,7 @@ const addUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
+    console.log("logining in")
     const { email, password } = req.body;
     const user = await User.findUser(email);
     const match = await bcrypt.compare(password, user.encrypted_password);
@@ -60,9 +62,11 @@ const getUserEdit = async (req, res) => {
   }
 };
 
-const verifyUser = async (req, res) => {
+const verifyUser = async (req, res, next) => {
   if(!req.session.user){
     res.redirect('/');
+  } else {
+    next();
   }
 }
 
