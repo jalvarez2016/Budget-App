@@ -1,0 +1,30 @@
+.budget-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.budget-banner {
+  height: 15em;
+}
+
+.budget-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#budget-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  margin-left: 1em;
+}
+
+#budget-form input {
+  width: 35%;
+  height: 2em;
+}
+
+#budget-form textarea {
+  width: 35%;
+}

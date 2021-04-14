@@ -26,7 +26,9 @@ CREATE TABLE items (
     title TEXT,
     description TEXT,
     count INT,
-    purchase_date DATE
+    purchase_date DATE,
+    img BYTEA
+
 );
 
 CREATE TABLE banners (

@@ -2,28 +2,34 @@
 <html lang="en">
     <%- include('./partials/head.ejs') %>
     <body>
+      <%- include('./partials/nav.ejs') %>
+      <main class="budget-main">
         <h1>New Budget Form Page</h1>
-        <form action="/budgets" method="POST">
+        <figure class="budget-banner">
+          <!-- This is a placeholder image -->
+          <img src="https://s.abcnews.com/images/International/zebra-stripes-02-gty-jc-190221_hpEmbed_3x2_992.jpg">
+        </figure>
+        <form id="budget-form" action="/budgets" method="POST">
+          <div class="input-group">
             <label for="banner_style">Banner Style</label>
-            <br>
             <input type="number" name="banner_style" placeholder="Banner Style">
-            <br>
+          </div>
+          <div class="input-group">
             <label for="title">Title</label>
-            <br>
             <input name="title" placeholder="Title">
-            <br>
+          </div>
+          <div class="input-group">
             <label for="description">Description</label>
-            <br>
-            <input name="description" placeholder="Description">
-            <br>
+            <textarea rows="3" name="description" placeholder="Description"></textarea>
+          </div>
+          <div class="input-group">
             <label for="budget_amount">Total / Limit</label>
-            <br>
             <input type="number" name="budget_amount" placeholder="$1000">
-            <br>
-            <label>Other options</label>
-            <br>
-            <!-- Add extra options here later -->
-            <input type="submit" value="Add Budget">
+          </div>
+          <label>Other options</label>
+          <!-- Add extra options here later -->
+          <input type="submit" value="Add Budget">
         </form>
+      </main>
     </body>
 </html>
