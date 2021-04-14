@@ -36,4 +36,8 @@ CREATE TABLE banners (
 );
 
 INSERT INTO banners (name) VALUES ('money');
--- groceries, clothes, bills, maintain vechiles, technology(computer, phone)
+INSERT INTO banners (name) VALUES ('groceries');
+INSERT INTO banners (name) VALUES ('clothes');
+INSERT INTO banners (name) VALUES ('bills');
+INSERT INTO banners (name) VALUES ('vehicles');
+INSERT INTO banners (name) VALUES ('technology');

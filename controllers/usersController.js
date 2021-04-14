@@ -5,7 +5,7 @@ const utils = require('../utils.js');
 
 const getUser = async (req, res) => {
   try {
-    const user = await User.getUser(req.params.id);
+    const user = req.session.user;
     const budgets = await Budget.getUserBudgets(user.id);
     user.budgets = budgets;
     res.render('user', { title: `${user.firstname}'s Page`, user });
@@ -60,9 +60,16 @@ const getUserEdit = async (req, res) => {
   }
 };
 
+const verifyUser = async (req, res) => {
+  if(!req.session.user){
+    res.redirect('/');
+  }
+}
+
 module.exports = {
   getUser,
   addUser,
   loginUser,
-  getUserEdit
+  getUserEdit,
+  verifyUser
 };

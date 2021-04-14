@@ -1,8 +1,10 @@
 const Budget = require('../models/Budget');
+const Banner = require('../models/Banner');
 
 const getBudget = async (req, res) => {
   try {
     const budget = await Budget.getBudget(req.params.id);
+    budget.banner = await Banner.getBanner(budget.banner_style);
     res.render('budget', { title: `${budget.title}`, budget, user: req.session.user });
   } catch (e) {
     console.error(e);
@@ -39,6 +41,7 @@ const newBudget = async (req, res) => {
 const editBudget = async (req, res) => {
   try {
     const budget = await Budget.getBudget(req.params.id);
+    budget.banner = await Banner.getBanner(budget.banner_style);
     res.render('editBudget', { title: `Editing ${budget.title}`, budget, user: req.session.user });
   } catch (e) {
     console.error(e);

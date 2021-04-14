@@ -34,6 +34,10 @@ app.get('/signup', (req, res) => {
 app.get('/signin', (req, res) => {
   res.render('signin', { title: 'Sign In!', user: req.session.user });
 });
+app.post('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
 app.get('/', (req, res) => {
   res.render('home', { title: 'Home Page', user: req.session.user });
 });
