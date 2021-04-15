@@ -23,8 +23,8 @@ const addUser = async (req, res) => {
     bcrypt.hash(password, 10, async (err, hash) => {
       if (err) throw new Error(err);
       const user = await User.addUser(firstname, lastname, email, birthday, hash);
+      req.session.user = user;
       res.redirect(`/users/${user.id}`);
-      req.session = user;
     });
   } catch (e) {
     console.error(e);

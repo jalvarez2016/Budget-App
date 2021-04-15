@@ -64,6 +64,7 @@ const changePassword = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     await User.removeUser(req.params.id);
+    req.session.destroy();
     res.status(200).json({ msg: `User id:${req.params.id} deleted successfully` });
   } catch (e) {
     console.error(e);

@@ -7,9 +7,14 @@ CREATE TABLE users (
     encrypted_password TEXT
 );
 
+CREATE TABLE banners (
+    ID SERIAL PRIMARY KEY,
+    name TEXT
+);
+
 CREATE TABLE budgets (
     ID SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(id),
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
     title TEXT,
     description TEXT,
     budget_amount NUMERIC,
@@ -27,11 +32,6 @@ CREATE TABLE items (
     description TEXT,
     count INT,
     purchase_date DATE
-);
-
-CREATE TABLE banners (
-    ID SERIAL PRIMARY KEY,
-    name TEXT
 );
 
 INSERT INTO banners (name) VALUES ('money');
