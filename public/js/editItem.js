@@ -26,7 +26,7 @@ function editItem() {
                 purchaseDate: purchase_date.value,
             })
         }
-        console.log(options.body)
+        
         fetch(`${window.location.origin}/api/items/${id}`, options).then(() => {
             window.location = `${window.location.origin}/items/${id}`;
         });
