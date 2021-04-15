@@ -1,12 +1,15 @@
 const Item = require('../models/Item');
 const Budget = require('../models/Budget');
+const utils = require('../utils.js');
 
 const getItem = async (req, res) => {
   try {
     const item = await Item.getItem(req.params.id);
     const budget = await Budget.getBudget(item.budget_id);
     budget.items = await Item.getItemsByBudget(budget.id);
-    res.render('item', { title: `${budget.title}`, item, budget, user: req.session.user });
+    res.render('item', {
+      title: `${budget.title}`, item, budget, user: req.session.user
+    });
   } catch (e) {
     console.error(e);
     res.sendStatus(500);
@@ -42,6 +45,7 @@ const newItem = async (req, res) => {
 const editItem = async (req, res) => {
   try {
     const item = await Item.getItem(req.params.id);
+    item.purchase_date = utils.formatDate(item.purchase_date);
     res.render('editItem', { title: `Editing ${item.title}`, item, user: req.session.user });
   } catch (e) {
     console.error(e);
