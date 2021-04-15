@@ -63,15 +63,18 @@ nav {
 }
 
 .budgets {
+    margin-top: 30px;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
+    align-items: center;
     flex-wrap: wrap;
+    padding: 20px;
 }
 
 .budget-cont {
     text-align: center;
-    width: 30%;
-    margin: 50px;
+    width: 25%;
+    margin: 10px;
     padding: 10px;
     box-shadow: 0px 0px 100px rgba(167, 129, 129, 0.3);
 }
