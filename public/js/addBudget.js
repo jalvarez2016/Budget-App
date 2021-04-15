@@ -2,10 +2,25 @@ document.addEventListener("DOMContentLoaded", main);
 
 function main() {
     onFormChange();
+    onEditFormChange()
 }
 
 function onFormChange() {
     const form = document.querySelector('#budget-form');
+    if(!form) return;
+    const banner = document.querySelector("#budget-banner-img");
+    form.addEventListener('change', async (e) => {
+        if(e.target.name === "banner_style") {
+            const style = await getBanner(e.target.value);
+            banner.style.background = "";
+            banner.className = `budget-banner banner-${style}`;
+        }
+    });
+}
+
+
+function onEditFormChange() {
+    const form = document.querySelector('#edit-budget-form');
     if(!form) return;
     const banner = document.querySelector("#budget-banner-img");
     form.addEventListener('change', async (e) => {

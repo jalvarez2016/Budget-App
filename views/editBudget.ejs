@@ -7,7 +7,7 @@
         <h1>Edit Budget</h1>
         <figure class="budget-banner">
           <!-- This is a placeholder image -->
-          <img src="https://s.abcnews.com/images/International/zebra-stripes-02-gty-jc-190221_hpEmbed_3x2_992.jpg">
+          <div id="budget-banner-img" class="budget-banner" style="background: url('https://s.abcnews.com/images/International/zebra-stripes-02-gty-jc-190221_hpEmbed_3x2_992.jpg') no-repeat center center fixed; "></div>
         </figure>
         <form id="edit-budget-form">
           <input type="hidden" name="budgetId" value="<%= budget.id %>">
@@ -33,4 +33,5 @@
     </body>
     <script src="/js/utils.js" charset="utf-8"></script>
     <script src="/js/editBudget.js" charset="utf-8"></script>
+    <script src="/js/addBudget.js" charset="utf-8"></script>
 </html>
