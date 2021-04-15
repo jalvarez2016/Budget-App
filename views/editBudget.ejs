@@ -9,7 +9,8 @@
           <!-- This is a placeholder image -->
           <img src="https://s.abcnews.com/images/International/zebra-stripes-02-gty-jc-190221_hpEmbed_3x2_992.jpg">
         </figure>
-        <form id="budget-form" action="/budgets" method="POST">
+        <form id="edit-budget-form">
+          <input type="hidden" name="budgetId" value="<%= budget.id %>">
           <div class="input-group">
             <label for="banner_style">Banner Style</label>
             <input type="number" name="banner_style" placeholder="Banner Style" value="<%= budget.banner_style %>">
@@ -30,4 +31,6 @@
         </form>
       </main>
     </body>
+    <script src="/js/utils.js" charset="utf-8"></script>
+    <script src="/js/editBudget.js" charset="utf-8"></script>
 </html>
