@@ -9,6 +9,7 @@
         <div>
           <form id="editUserForm">
             <!-- Use AJAX to make this PATCH request -->
+            <input type="hidden" name="userId" value="<%= user.id %>">
             <label for="firstname">First Name</label><br>
             <input name="firstname" value="<%= user.firstname %>"><br>
             <label for="lastname">Last Name</label><br>

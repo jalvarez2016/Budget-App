@@ -32,6 +32,8 @@ const addUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
+    req.session.user = Object.assign(req.session.user, req.body);
+    console.log(req.session.user);
     const updatedUser = await User.updateUser(
       req.params.id,
       req.body.firstname,

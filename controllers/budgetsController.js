@@ -42,7 +42,6 @@ const newBudget = async (req, res) => {
     const user_id = req.session.user.id;
     const budget = await Budget.addBudget(user_id, budget_amount, title, description, banner_style);
     res.redirect(`/users/${user_id}`);
-    console.log(data);
   } catch (e) {
     console.error(e);
     res.sendStatus(500);

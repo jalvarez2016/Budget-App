@@ -18,7 +18,7 @@ CREATE TABLE budgets (
 
 CREATE TABLE items (
     ID SERIAL PRIMARY KEY,
-    budget_id INT REFERENCES budgets(id),
+    budget_id INT REFERENCES budgets(id) ON DELETE CASCADE,
     price NUMERIC,
     rating INT,
     constraint rating_range_check
