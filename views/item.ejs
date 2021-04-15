@@ -35,7 +35,9 @@
                             <input type="submit" value="Edit">
                         </form>
                         <!-- Use AJAX here to delete -->
-                        <form>
+                        <form id="deleteItm">                            
+                            <input name='budget_id' type="hidden" value="<%= item.budget_id %>">
+                            <input name='id' type="hidden" value="<%= item.id %>">
                             <input type="submit" value="Delete">
                         </form>
                     </div>
@@ -52,4 +54,5 @@
             <%} }) %>
         </div>
     </body>
+    <script src="/js/deleteItem.js" charset="utf-8"></script>
 </html>

@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function main() {
     percentSpent();
+    analyzeType();
+}
+
+function analyzeType() {
+    const buttons = document.querySelectorAll(".budget-analysis-icon");
+    
 }
 
 function percentSpent() {

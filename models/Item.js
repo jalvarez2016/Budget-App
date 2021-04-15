@@ -28,7 +28,7 @@ class Item {
   }
 
   static updateItem(price, rating, title, description, count, purchaseDate, id) {
-    const queryText = 'UPDATE items SET price = $1, rating = $2, title = $3, description = $4, count = $5, purchase_date = $6, WHERE id = $7 RETURNING *';
+    const queryText = 'UPDATE items SET price = $1, rating = $2, title = $3, description = $4, count = $5, purchase_date = $6 WHERE id = $7 RETURNING *';
     return query(queryText, [price,
       rating,
       title,
