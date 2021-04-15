@@ -98,3 +98,11 @@ nav {
 .banner-technology {
     background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVMjvaShVM8OFbT2k6oPg146abn_MWkmz3AA&usqp=CAU") no-repeat center center fixed;
 }
+
+.budget-analysis-icon {
+    text-align: center;
+}
+
+.active {
+    color:rgba(142, 224, 139, 0.747)
+}
