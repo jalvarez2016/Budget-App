@@ -64,8 +64,8 @@ const analyzeBudget = async (req, res) => {
     const budget = await Budget.getBudget(req.params.id);
     budget.items = await Item.getItemsByBudget(req.params.id);
     budget.banner = await Banner.getBanner(budget.banner_style);
-    budget.spent = budget.items.reduce((cur, val) => cur + parseInt(val.price.slice(1).split(',').join('')), 0);
-    budget.left = parseInt(budget.budget_amount.slice(1).split(',').join('')) - budget.spent;
+    budget.spent = budget.items.reduce((cur, val) => cur + Number(val.price), 0);
+    budget.left = Number(budget.budget_amount) - budget.spent;
     res.render('analyzeBudget', { title: `Analyzing ${budget.title}`, budget, user: req.session.user });
   } catch (e) {
     console.log(e);

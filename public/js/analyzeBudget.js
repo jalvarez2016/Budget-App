@@ -23,7 +23,7 @@ function percentSpent() {
         new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: [`${percent}% Spent`, `${100 - percent}% Left`],
+                labels: [`${percent.toFixed(2)}% Spent`, `${(100 - percent).toFixed(2)}% Left`],
                 datasets: [
                     {
                         label: 'Percent Spent',
