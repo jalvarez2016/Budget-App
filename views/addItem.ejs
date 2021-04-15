@@ -26,7 +26,7 @@
         <input type="date" name="purchaseDate">
       </div>
       <label for="rating">Rating</label>
-      <input type="number" name="rating" placeholder="5">
+      <input min="1" max="5" type="number" name="rating" placeholder="5">
       <input type="hidden" name="budgetId" value="<%= budget.id %>">
       <input type="submit" value="Add Budget">
     </form>

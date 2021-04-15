@@ -13,7 +13,7 @@
           <input type="hidden" name="budgetId" value="<%= budget.id %>">
           <div class="input-group">
             <label for="banner_style">Banner Style</label>
-            <input type="number" name="banner_style" placeholder="Banner Style" value="<%= budget.banner_style %>">
+            <input min="1" max="6" type="number" name="banner_style" placeholder="Banner Style" value="<%= budget.banner_style %>">
           </div>
           <div class="input-group">
             <label for="title">Title</label>
