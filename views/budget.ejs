@@ -48,8 +48,8 @@
         <% items.forEach((item) => { %>
         <div class="grid-el">
           <div class="budget-item" data-item-id="<%= item.id %>">
-            <h4><%= item.title %></h4>
-            <h5><%= item.price %></h5>
+            <h4><%= item.title %> <%= item.count > 1 ? `(x${item.count})` : '' %></h4>
+            <h5><%= formatter(item.price * item.count) %></h5>
             <div class="<%= item.rating %>">
               <% for (var i = 0; i<5; i++) { %>
                 <% if (i < item.rating) { %>

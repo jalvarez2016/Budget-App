@@ -7,26 +7,26 @@
     <form id="editItemForm">
       <div class="input-group">
         <label for="title">Title</label>
-        <input name="title" placeholder="<%= item.title %>">
+        <input name="title" value="<%= item.title %>">
       </div>
       <div class="input-group">
         <label for="description">Description of Item</label>
-        <input name="description" placeholder="<%= item.description %>">
+        <input name="description" value="<%= item.description %>">
       </div>
       <div class="input-group">
         <label for="price">Unit Price</label>
-        <input type="number" name="price" placeholder="<%= item.price %>">
+        <input type="number" name="price" value="<%= item.price %>" step="0.01">
       </div>
       <div class="input-group">
         <label for="count">Amount</label>
-        <input type="number" name="count" placeholder="<%= item.count %>">
+        <input type="number" name="count" value="<%= item.count %>">
       </div>
       <div class="input-group">
         <label for="purchaseDate">Date Purchased</label>
-        <input type="date" name="purchase_date" placeholder="<%= item.purchase_date %>">
+        <input type="date" name="purchase_date" value="<%= item.purchase_date %>">
       </div>
       <label for="rating">Rating</label>
-      <input min="1" max="5" type="number" name="rating" placeholder="<%= item.rating %>">
+      <input min="1" max="5" type="number" name="rating" value="<%= item.rating %>">
       <input type="hidden" name="id" value="<%= item.id %>">
       <input type="submit" value="Submit Changes">
     </form>
