@@ -30,7 +30,7 @@
                         <a href="/budgets/<%= budget.id %>">
                             <h3><%= budget.title %></h3>
                             <div class="budget-info">
-                                <p><%= budget.budget_amount %></p>
+                                <p><%= formatter(budget.budget_amount) %></p>
                             </div>
                         </a>
                     </div>
@@ -38,4 +38,5 @@
             </div>
         </div>
     </body>
+    <script src="/js/utils.js" charset="utf-8"></script>
 </html>

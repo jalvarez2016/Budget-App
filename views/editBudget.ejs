@@ -4,7 +4,7 @@
     <body>
       <%- include('./partials/nav.ejs') %>
       <main class="budget-main">
-        <h1>New Budget Form Page</h1>
+        <h1>Edit Budget</h1>
         <figure class="budget-banner">
           <!-- This is a placeholder image -->
           <img src="https://s.abcnews.com/images/International/zebra-stripes-02-gty-jc-190221_hpEmbed_3x2_992.jpg">
@@ -12,23 +12,21 @@
         <form id="budget-form" action="/budgets" method="POST">
           <div class="input-group">
             <label for="banner_style">Banner Style</label>
-            <input type="number" name="banner_style" placeholder="Banner Style">
+            <input type="number" name="banner_style" placeholder="Banner Style" value="<%= budget.banner_style %>">
           </div>
           <div class="input-group">
             <label for="title">Title</label>
-            <input name="title" placeholder="Title">
+            <input name="title" placeholder="Title" value="<%= budget.title %>">
           </div>
           <div class="input-group">
             <label for="description">Description</label>
-            <textarea rows="3" name="description" placeholder="Description"></textarea>
+            <textarea rows="3" name="description" placeholder="Description"><%= budget.description %></textarea>
           </div>
           <div class="input-group">
             <label for="budget_amount">Total / Limit</label>
-            <input type="number" name="budget_amount" placeholder="$1000" step="0.01">
+            <input type="number" name="budget_amount" placeholder="$1000" step="0.01" value="<%= budget.budget_amount %>">
           </div>
-          <label>Other options</label>
-          <!-- Add extra options here later -->
-          <input type="submit" value="Add Budget">
+          <input type="submit" value="Submit Changes">
         </form>
       </main>
     </body>

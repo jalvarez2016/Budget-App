@@ -8,7 +8,7 @@ form.addEventListener('submit', (e) => {
   const count = form.querySelector('[name="count"]').value;
   const rating = form.querySelector('[name="rating"]').value;
   const budgetId = form.querySelector('[name="budgetId"]').value;
-  const purchaseDate = form.querySelector('[name="purchaseDate"]').value;
+  const purchaseDate = form.querySelector('[name="purchaseDate"]').value || null;
   const options = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

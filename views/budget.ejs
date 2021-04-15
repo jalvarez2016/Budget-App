@@ -14,20 +14,26 @@
           <h3><%= budget.title %></h3>
         </div>
       </div>
-      <div class="budget-info">
-        <div class="budget-info-bit">
-          <span>Budget Limit</span>
-          <span><%= budget.budget_amount %></span>
+      <section class="budget-menu">
+        <div class="budget-info">
+          <div class="budget-info-bit">
+            <span>Budget Limit</span>
+            <span><%= formatter(budget.budget_amount) %></span>
+          </div>
+          <div class="budget-info-bit">
+            <span>Expenditure</span>
+            <span><%= formatter(budget.spent) %></span>
+          </div>
+          <div class="budget-info-bit">
+            <span>Balance Remaining</span>
+            <span><%= formatter(budget.left) %></span>
+          </div>
         </div>
-        <div class="budget-info-bit">
-          <span>Expenditure</span>
-          <span>$<%= budget.spent %></span>
+        <div class="budget-buttons" style="margin-left: 1em;">
+          <button id="edit">Edit</button>
+          <button id="delete" style="margin-left: 1em;">Delete</button>
         </div>
-        <div class="budget-info-bit">
-          <span>Balance Remaining</span>
-          <span>$<%= budget.left %></span>
-        </div>
-      </div>
+      </section>
       <div class="budget-desc">
         <p><%= budget.description %></p>
       </div>

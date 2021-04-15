@@ -12,14 +12,14 @@ CREATE TABLE budgets (
     user_id INT REFERENCES users(id),
     title TEXT,
     description TEXT,
-    budget_amount MONEY,
+    budget_amount NUMERIC,
     banner_style INT REFERENCES banners(id)
 );
 
 CREATE TABLE items (
     ID SERIAL PRIMARY KEY,
     budget_id INT REFERENCES budgets(id),
-    price MONEY,
+    price NUMERIC,
     rating INT,
     constraint rating_range_check
         check(rating >= 0 and rating <= 5),
