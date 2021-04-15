@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('./partials/head.ejs') %>
-    <body>
-        <%- include('./partials/nav.ejs') %>
-        <div class="main-content">
-            <div class="budget-banner banner-<%= budget.banner %>">
-                <div class="budget-info-btn">
-                    <a href="/budgets/<%= budget.id%>/analyze">
-                        <div class="budget-icon">i</div>
-                    </a>
-                </div>
-                <div>
-                    <h3><%= budget.title %></h3>
-                    <h4><%= user.firstname %> <%= user.lastname %></h4>
-                </div>
-            </div>
-            <div class="budget-info">
-                <div class="budget-info-bit">Total Money
-                    <br>
-                    <%= budget.budget_amount %>
-                </div>
-                <div class="budget-info-bit">Money Spent
-                    <br>
-                    $<%= budget.spent %>
-                </div>
-                <div class="budget-info-bit">Money Left
-                    <br>
-                    $<%= budget.left %>
-                </div>
-            </div>
-            <div class="budget-desc">
-                <p><%= budget.description %></p>
-            </div>
-            <div class="budget-itm-heading">
-                <h3>Items</h3>
-                <a href="/budgets/<%= budget.id %>/items/new">
-                    <button>Add Item</button>
-                </a>
-            </div>
-            <section class="item-grid">
-              <% items.forEach((item) => { %>
-                <div class="budget-item">
-                    <a href="/items/<%=item.id%>" data-item-id="<%= item.id %>">
-                        <h4><%= item.title %></h4>
-                        <h5><%= item.price %></h5>
-                        <div class="<%= item.rating %>">
-                            <%= item.rating %>
-                        </div>
-                    </a>
-                </div>
-              <% }) %>
-            </section>
+<%- include('./partials/head.ejs') %>
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <main class="main-content">
+      <div class="budget-banner banner-<%= budget.banner %>">
+        <div class="budget-info-btn">
+          <a href="/budgets/<%= budget.id%>/analyze">
+            <div class="budget-icon">i</div>
+          </a>
         </div>
-    </body>
+        <div>
+          <h3><%= budget.title %></h3>
+        </div>
+      </div>
+      <div class="budget-info">
+        <div class="budget-info-bit">
+          <span>Budget Limit</span>
+          <span><%= budget.budget_amount %></span>
+        </div>
+        <div class="budget-info-bit">
+          <span>Expenditure</span>
+          <span>$<%= budget.spent %></span>
+        </div>
+        <div class="budget-info-bit">
+          <span>Balance Remaining</span>
+          <span>$<%= budget.left %></span>
+        </div>
+      </div>
+      <div class="budget-desc">
+        <p><%= budget.description %></p>
+      </div>
+      <div class="budget-itm-heading">
+        <h3>Items</h3>
+        <a href="/budgets/<%= budget.id %>/items/new">
+          <button>Add Item</button>
+        </a>
+      </div>
+      <hr>
+      <section class="item-grid">
+        <% items.forEach((item) => { %>
+        <div class="grid-el">
+          <div class="budget-item" data-item-id="<%= item.id %>">
+            <h4><%= item.title %></h4>
+            <h5><%= item.price %></h5>
+            <div class="<%= item.rating %>">
+              <% for (var i = 0; i<5; i++) { %>
+                <% if (i < item.rating) { %>
+                  <span>&starf;</span>
+                <% } else { %>
+                  <span>&star;</span>
+                <% } %>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </section>
+    </main>
+  </body>
+  <script src="/js/budget.js" charset="utf-8"></script>
 </html>
