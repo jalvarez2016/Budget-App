@@ -6,24 +6,32 @@
     </div>
     <div class="side-btns">
         <% if (user) { %>
-            <div>
-                <!-- have an ejs conditional here using user -->
-                <a href="/users/<%= user.id %>">
-                    <button>Profile</button>
-                </a>
-            </div>
-            <div>
-                <!-- have an ejs conditional here using user -->
-                <form action="/budgets/new" method="GET">
-                    <input type="hidden" value="<%= user.id %>">
-                    <input type="submit" value="New Budget">
-                </form>
-            </div>
-            <div>
-                <!-- have an ejs conditional here using user -->
-                <form action="/logout" method="POST">
-                    <input type="submit" value="Log Out">
-                </form>
+            <div class="wrapper" style="display: flex; flex-direction: column;">
+              <div class="logged-user" style="display: flex; margin-bottom: 1em; align-items: center">
+                <span style="margin-right: 1em;"><%= user.firstname %> <%= user.lastname %></span>
+                <div>
+                    <!-- have an ejs conditional here using user -->
+                    <form action="/logout" method="POST">
+                        <input type="submit" value="Log Out">
+                    </form>
+                </div>
+              </div>
+              <div class="nav-buttons" style="display:flex; justify-content: flex-end;">
+                <div>
+                    <!-- have an ejs conditional here using user -->
+                    <a href="/users/<%= user.id %>">
+                        <button>Profile</button>
+                    </a>
+                </div>
+                <div>
+                    <!-- have an ejs conditional here using user -->
+                    <form action="/budgets/new" method="GET">
+                        <input type="hidden" value="<%= user.id %>">
+                        <input type="submit" value="New Budget">
+                    </form>
+                </div>
+
+              </div>
             </div>
         <% } else { %>
             <div>

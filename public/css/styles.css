@@ -79,72 +79,26 @@ nav {
     box-shadow: 0px 0px 100px rgba(167, 129, 129, 0.3);
 }
 
-.budget-banner {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-}
-
-.budget-info-btn {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-}
-
-.budget-icon {
-    width: 20px;
-    height: 20px;
-    padding: 3px;
-    border-radius: 50%;
-    margin: 3px;
-    background-color: rgba(255,255,255,.5);
-    box-shadow: 0px 0px 10px rgba(167, 129, 129, 0.3);
-}
-
-.budget-info {
-    display: flex;
-    padding: 20px;
-    justify-content: space-between;
-}
-
-.budget-itm-heading {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    align-items: center;
-}
-
-.budget-info-bit {
-    text-align: center;
-}
-
 .banner-money {
-    background: url("https://tradinginsider.fr/wp-content/uploads/2018/12/money.png") no-repeat center center fixed; 
+    background: url("https://tradinginsider.fr/wp-content/uploads/2018/12/money.png") no-repeat center center fixed;
 }
 
 .banner-groceries {
-    background: url("https://media.istockphoto.com/photos/shopping-cart-in-supermarket-aisle-with-product-shelves-interior-picture-id1128949343?k=6&m=1128949343&s=612x612&w=0&h=-rfUFsHnGj1ehgV9L7SRwI_VSKGoIEcp67GOfPyqbDg=") no-repeat center center fixed; 
+    background: url("https://media.istockphoto.com/photos/shopping-cart-in-supermarket-aisle-with-product-shelves-interior-picture-id1128949343?k=6&m=1128949343&s=612x612&w=0&h=-rfUFsHnGj1ehgV9L7SRwI_VSKGoIEcp67GOfPyqbDg=") no-repeat center center fixed;
 }
 
 .banner-clothes {
-    background: url("https://www.soilassociation.org/media/18457/blur-blurred-background-boutique-1036856.jpg?anchor=center&mode=crop&width=1903&height=479&rnd=131986860690000000") no-repeat center center fixed; 
+    background: url("https://www.soilassociation.org/media/18457/blur-blurred-background-boutique-1036856.jpg?anchor=center&mode=crop&width=1903&height=479&rnd=131986860690000000") no-repeat center center fixed;
 }
 
 .banner-bills {
-    background: url("https://www.usnews.com/dims4/USNEWS/48f6b45/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F2c%2Ffc%2Ff4e1c840410499963e9aee41e058%2F140718-billgas-stock.jpg") no-repeat center center fixed; 
+    background: url("https://www.usnews.com/dims4/USNEWS/48f6b45/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F2c%2Ffc%2Ff4e1c840410499963e9aee41e058%2F140718-billgas-stock.jpg") no-repeat center center fixed;
 }
 
 .banner-vehicles {
-    background: url("https://bigbluem.com/wp-content/uploads/Manufacturers%E2%80%99-Recommendations-and-Vehicle-Maintenance_McCollum.jpg") no-repeat center center fixed; 
+    background: url("https://bigbluem.com/wp-content/uploads/Manufacturers%E2%80%99-Recommendations-and-Vehicle-Maintenance_McCollum.jpg") no-repeat center center fixed;
 }
 
 .banner-technology {
-    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVMjvaShVM8OFbT2k6oPg146abn_MWkmz3AA&usqp=CAU") no-repeat center center fixed; 
-}
-
-.budget-banner{
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVMjvaShVM8OFbT2k6oPg146abn_MWkmz3AA&usqp=CAU") no-repeat center center fixed;
 }

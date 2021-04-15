@@ -1,0 +1,73 @@
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr)
+}
+
+.grid-el {
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.budget-item {
+  border: 1px solid black;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.5s, height 0.5s
+}
+
+.budget-desc {
+  text-align: center;
+}
+
+.budget-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.budget-info-bit {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.budget-itm-heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1em;
+    align-items: center;
+}
+
+.budget-icon {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    border-radius: 50%;
+    margin: 3px;
+    background-color: rgba(255,255,255,.5);
+    box-shadow: 0px 0px 10px rgba(167, 129, 129, 0.3);
+}
+
+.budget-banner {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.budget-info-btn {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.budget-banner{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
