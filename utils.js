@@ -5,6 +5,12 @@ function formatDate(timestamp) {
   return `${dateObj.getFullYear()}-${month}-${date}`;
 }
 
+function formatAsMoney(num) {
+  const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+  return money.format(num);
+}
+
 module.exports = {
-  formatDate
+  formatDate,
+  formatAsMoney
 };

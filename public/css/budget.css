@@ -25,8 +25,19 @@
   text-align: center;
 }
 
+.budget-menu {
+  display: flex;
+}
+
+.budget-buttons {
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .budget-info {
   display: flex;
+  flex: 1;
   justify-content: space-between;
 }
 

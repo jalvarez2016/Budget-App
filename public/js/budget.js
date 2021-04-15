@@ -1,3 +1,10 @@
+const editButton = document.getElementById('edit');
+const deleteButton = document.getElementById('delete');
+
+editButton.addEventListener('click', () => {
+  window.location = `${window.location}/edit`;
+});
+
 Array.from(document.getElementsByClassName('budget-item')).forEach((item) => {
   item.addEventListener('click', () => {
     const id = item.getAttribute('data-item-id');
