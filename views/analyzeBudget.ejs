@@ -16,9 +16,9 @@
                 </div>
             </div>
             <div style="display: none;" class="budget-analysis">
-                <h3 id="percent-spent-value"><%= (budget.spent / parseInt(budget.budget_amount.slice(1).split(',').join('')) * 100) %></h3>
+                <h3 id="percent-spent-value"><%= (budget.spent / parseInt(budget.budget_amount) * 100) %></h3>
                 <h4 id="percent-spent-value-int"><%= budget.spent %></h4>
-                <h4 id="percent-total-value-int"><%= parseInt(budget.budget_amount.slice(1).split(',').join('')) %></h4>
+                <h4 id="percent-total-value-int"><%= parseInt(budget.budget_amount) %></h4>
             </div>
             <div style="width: 50%; margin: auto; padding: 50px 0px;" class="budget-analysis">
                 <canvas id="percent-spent"></canvas>
