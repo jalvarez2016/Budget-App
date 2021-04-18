@@ -11,8 +11,13 @@
         <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
     </head>
     <body>
+<<<<<<< HEAD
         <%- include('./partials/nav.ejs', {name: "Item"}) %>
         <div class="main-content">
+=======
+        <%- include('./partials/nav.ejs') %>
+        <div class="main-content" style="display: flex;">
+>>>>>>> e9645c31f8c3e4403c737a841f4ed6b015f7dc48
             <div class="item-section">
                 <div class="budget-banner budget-banner-mini banner-<%= budget.banner %>">
                     <div class="budget-info-btn">
@@ -53,7 +58,7 @@
                 </div>
             </div>
             <% budget.items.forEach((itm) => { if(itm.id !== item.id){ %>
-            <a href="/items/<%=itm.id%>" data-item-id="<%= itm.id %>">
+            <a href="/items/<%=itm.id%>" class="budget-item" data-item-id="<%= itm.id %>">
                 <h4><%= itm.title %></h4>
                 <h5><%= itm.price %></h5>
                 <div class="<%= itm.rating %>">
