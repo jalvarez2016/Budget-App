@@ -1,7 +1,7 @@
 <nav>
     <div class="logo">
         <a href="/">
-            <h2>Logo</h2>
+            <h2>BudgetApp</h2>
         </a>
     </div>
     <div class="side-btns">
@@ -12,7 +12,7 @@
                 <div>
                     <!-- have an ejs conditional here using user -->
                     <form action="/logout" method="POST">
-                        <input type="submit" value="Log Out">
+                        <button class="btn btn-outline-primary" type="submit">Logout</button>
                     </form>
                 </div>
               </div>
@@ -20,14 +20,14 @@
                 <div>
                     <!-- have an ejs conditional here using user -->
                     <a href="/users/<%= user.id %>">
-                        <button>Profile</button>
+                        <button class="btn btn-primary">Profile</button>
                     </a>
                 </div>
                 <div>
                     <!-- have an ejs conditional here using user -->
                     <form action="/budgets/new" method="GET">
                         <input type="hidden" value="<%= user.id %>">
-                        <input type="submit" value="New Budget">
+                        <button class="btn btn-secondary ml-3" type="submit">New Budget +</button>
                     </form>
                 </div>
 
@@ -37,13 +37,13 @@
             <div>
                 <!-- have an ejs conditional here using user -->
                 <a href="/signup">
-                    <button>Sign Up</button>
+                    <button class="btn btn-primary">Sign Up</button>
                 </a>
             </div>
-            <div>
+            <div class="ml-3">
                 <!-- have an ejs conditional here using user -->
                 <a href="/signin">
-                    <button>Sign In</button>
+                    <button class="btn btn-outline-primary">Sign In</button>
                 </a>
             </div>
         <% } %>

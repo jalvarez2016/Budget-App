@@ -10,20 +10,25 @@ a {
     text-decoration: none;
 }
 
+main {
+  flex: 1;
+  height: 100%;
+}
+
 nav {
-    display: flex;
+    display: flex!important;
     justify-content: space-between;
+    align-items: center;
     padding: 10px;
+    position: sticky;
+    z-index: 1;
+    top: 0;
 }
 
 .side-btns {
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
-
-.main-content {
-    padding: 10px;
 }
 
 .user {
