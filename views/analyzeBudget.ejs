@@ -6,9 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
         <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+        <script src="/jquery/jquery.min.js" charset="utf-8"></script>
+        <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
     </head>
     <body>
-        <%- include('./partials/nav.ejs') %>
+        <%- include('./partials/nav.ejs', {name: "Budget Analysis"}) %>
         <div class="main-content">
             <div class="budget-banner banner-<%= budget.banner %>">
                 <div class="budget-info-btn">
