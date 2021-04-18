@@ -12,34 +12,38 @@
   </head>
   <body>
     <%- include('./partials/nav.ejs', {name: "New Item"}) %>
-    <h1>New Budget Item</h1>
-    <span>Adding a new item to "<%= budget.title %>"</span>
-    <form id="addItemForm">
-      <div class="input-group">
-        <label for="title">Title</label>
-        <input name="title" placeholder="Title">
-      </div>
-      <div class="input-group">
-        <label for="description">Description of Item</label>
-        <input name="description" placeholder="Description">
-      </div>
-      <div class="input-group">
-        <label for="price">Unit Price</label>
-        <input type="number" name="price" placeholder="$10" step="0.01">
-      </div>
-      <div class="input-group">
-        <label for="count">Amount</label>
-        <input type="number" name="count" placeholder="10">
-      </div>
-      <div class="input-group">
-        <label for="purchaseDate">Date Purchased</label>
-        <input type="date" name="purchaseDate">
-      </div>
-      <label for="rating">Rating</label>
-      <input min="1" max="5" type="number" name="rating" placeholder="5">
-      <input type="hidden" name="budgetId" value="<%= budget.id %>">
-      <input type="submit" value="Add Budget">
-    </form>
+    <div class="main-content-form">
+      <h1>New Budget Item</h1>
+      <span>Adding a new item to "<%= budget.title %>"</span>
+      <form class="page-form" id="addItemForm">
+        <div class="input-group">
+          <label class="form-label" for="title">Title</label>
+          <input name="title" class="form-control" placeholder="Title">
+        </div>
+        <div class="input-group">
+          <label class="form-label" for="description">Description of Item</label>
+          <input name="description" placeholder="Description" class="form-control" >
+        </div>
+        <div class="input-group">
+          <label class="form-label" for="price">Unit Price</label>
+          <input type="number" name="price" placeholder="$10" step="0.01" class="form-control" >
+        </div>
+        <div class="input-group">
+          <label class="form-label" for="count">Amount</label>
+          <input type="number" name="count" placeholder="10" class="form-control" >
+        </div>
+        <div class="input-group">
+          <label class="form-label" for="purchaseDate">Date Purchased</label>
+          <input type="date" name="purchaseDate" class="form-control" >
+        </div>
+        <div class="input-group">
+          <label class="form-label" for="rating">Rating</label>
+          <input min="1" max="5" type="number" name="rating" placeholder="5" class="form-control" >
+        </div>
+        <input type="hidden" name="budgetId" value="<%= budget.id %>">
+        <input class="btn btn-primary" type="submit" value="Add Budget">
+      </form>
+    </div>
   </body>
   <script src="/js/addItem.js" charset="utf-8"></script>
 </html>

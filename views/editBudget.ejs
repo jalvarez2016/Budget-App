@@ -12,31 +12,31 @@
     </head>
     <body>
       <%- include('./partials/nav.ejs', {name: "Editing Budget..."}) %>
-      <main class="budget-main">
+      <main class="budget-main main-content-form">
         <h1>Edit Budget</h1>
         <figure class="budget-banner">
           <!-- This is a placeholder image -->
           <div id="budget-banner-img" class="budget-banner" style="background: url('https://s.abcnews.com/images/International/zebra-stripes-02-gty-jc-190221_hpEmbed_3x2_992.jpg') no-repeat center center fixed; "></div>
         </figure>
-        <form id="edit-budget-form">
+        <form class="page-form" id="edit-budget-form">
           <input type="hidden" name="budgetId" value="<%= budget.id %>">
           <div class="input-group">
-            <label for="banner_style">Banner Style</label>
-            <input min="1" max="6" type="number" name="banner_style" placeholder="Banner Style" value="<%= budget.banner_style %>">
+            <label class="form-label" for="banner_style">Banner Style</label>
+            <input class="form-control" min="1" max="6" type="number" name="banner_style" placeholder="Banner Style" value="<%= budget.banner_style %>">
           </div>
           <div class="input-group">
-            <label for="title">Title</label>
-            <input name="title" placeholder="Title" value="<%= budget.title %>">
+            <label class="form-label" for="title">Title</label>
+            <input class="form-control" name="title" placeholder="Title" value="<%= budget.title %>">
           </div>
           <div class="input-group">
-            <label for="description">Description</label>
-            <textarea rows="3" name="description" placeholder="Description"><%= budget.description %></textarea>
+            <label class="form-label" for="description">Description</label>
+            <textarea class="form-control" rows="3" name="description" placeholder="Description"><%= budget.description %></textarea>
           </div>
           <div class="input-group">
-            <label for="budget_amount">Total / Limit</label>
-            <input type="number" name="budget_amount" placeholder="$1000" step="0.01" value="<%= budget.budget_amount %>">
+            <label class="form-label" for="budget_amount">Total / Limit</label>
+            <input class="form-control" type="number" name="budget_amount" placeholder="$1000" step="0.01" value="<%= budget.budget_amount %>">
           </div>
-          <input type="submit" value="Submit Changes">
+          <input class="btn btn-primary" type="submit" value="Submit Changes">
         </form>
       </main>
     </body>

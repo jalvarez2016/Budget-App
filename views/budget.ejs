@@ -40,17 +40,17 @@
           </div>
         </div>
         <div class="budget-buttons" style="margin-left: 1em;">
-          <button id="edit">Edit</button>
-          <button data-user-id="<%= budget.user_id %>" data-budget-id="<%= budget.id %>" id="delete" style="margin-left: 1em;">Delete</button>
+          <button id="edit" class="btn btn-outline-primary">Edit</button>
+          <button class="btn btn-outline-primary" data-user-id="<%= budget.user_id %>" data-budget-id="<%= budget.id %>" id="delete" style="margin-left: 1em;">Delete</button>
         </div>
       </section>
       <div class="budget-desc">
-        <p><%= budget.description %></p>
+        <p class="text-muted">Description: <%= budget.description %></p>
       </div>
       <div class="budget-itm-heading">
         <h3>Items</h3>
         <a href="/budgets/<%= budget.id %>/items/new">
-          <button>Add Item</button>
+          <button class="btn btn-outline-primary">Add Item</button>
         </a>
       </div>
       <hr>

@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="main-item card-body">
                         <h4><%= item.title %></h4>
-                        <p>Purchased On:
+                        <p class="text-muted">Purchased On:
                             <br>
                             <%= item.purchase_date %>
                         </p>
@@ -68,9 +68,15 @@
                 <% budget.items.forEach((itm) => { if(itm.id !== item.id){ %>
                 <a href="/items/<%=itm.id%>" class="item-item" data-item-id="<%= itm.id %>">
                     <h4><%= itm.title %></h4>
-                    <h5><%= itm.price %></h5>
+                    <h5>$<%= itm.price %></h5>
                     <div class="<%= itm.rating %>">
-                        <%= itm.rating %>
+                        <% for (var i = 0; i<5; i++) { %>
+                          <% if (i < itm.rating) { %>
+                            <span>&starf;</span>
+                          <% } else { %>
+                            <span>&star;</span>
+                          <% } %>
+                        <% } %>
                     </div>
                 </a>
                 <%} }) %>

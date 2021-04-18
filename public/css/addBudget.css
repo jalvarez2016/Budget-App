@@ -28,3 +28,7 @@
 #budget-form textarea {
   width: 35%;
 }
+
+#budget-form div {
+  padding: 0px 0px 10px 0px;
+}
