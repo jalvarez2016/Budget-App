@@ -12,7 +12,7 @@
       <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
   </head>
   <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/nav.ejs', {name: "Budget"}) %>
     <main class="main-content">
       <div class="budget-banner banner-<%= budget.banner %>">
         <div class="budget-info-btn">

@@ -25,6 +25,10 @@ nav {
     top: 0;
 }
 
+.page-name h1 {
+  font-weight: 200;
+}
+
 .side-btns {
     display: flex;
     justify-content: space-around;

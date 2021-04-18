@@ -11,7 +11,7 @@
       <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
   </head>
   <body>
-    <%- include('./partials/nav.ejs') %>
+    <%- include('./partials/nav.ejs', {name: "Account Settings"}) %>
     <div class="main-content">
       <div>
         <h1><%= user.firstname %> <%= user.lastname %> Edit</h1>
