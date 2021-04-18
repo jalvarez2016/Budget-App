@@ -64,7 +64,7 @@ const analyzeBudget = async (req, res) => {
     const budget = await Budget.getBudget(req.params.id);
     budget.items = await Item.getItemsByBudget(req.params.id);
     budget.banner = await Banner.getBanner(budget.banner_style);
-    budget.spent = budget.items.reduce((cur, val) => cur + Number(val.price), 0);
+    budget.spent = budget.items.reduce((cur, val) => cur + (Number(val.price) * Number(val.count)), 0);
     budget.left = Number(budget.budget_amount) - budget.spent;
     res.render('analyzeBudget', { title: `Analyzing ${budget.title}`, budget, user: req.session.user });
   } catch (e) {
