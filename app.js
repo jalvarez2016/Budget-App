@@ -23,10 +23,10 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// HOW TO SERVE PUBLIC FILES
+// PUBLIC FILES
 app.use(express.static('public'));
-// app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
-// app.use('/jquery', express.static('node_modules/jquery/dist'));
+app.use('/bootstrap', express.static('node_modules/bootstrap/dist'));
+app.use('/jquery', express.static('node_modules/jquery/dist'));
 
 app.set('view engine', 'ejs');
 app.get('/signup', (req, res) => {
