@@ -6,6 +6,9 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title><%= title %></title>
       <link rel="stylesheet" href="/css/styles.css">
+      <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+      <script src="/jquery/jquery.min.js" charset="utf-8"></script>
+      <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
   </head>
   <body>
     <%- include('./partials/nav.ejs') %>
@@ -15,16 +18,16 @@
         <div>
           <form id="editUserForm">
             <!-- Use AJAX to make this PATCH request -->
-            <input type="hidden" name="userId" value="<%= user.id %>">
-            <label for="firstname">First Name</label><br>
-            <input name="firstname" value="<%= user.firstname %>"><br>
-            <label for="lastname">Last Name</label><br>
-            <input name="lastname" value="<%= user.lastname %>"><br>
-            <label for="Email">Email</label><br>
-            <input name="email" value="<%= user.email %>"><br>
-            <label for="birthday">Date Of Birth</label><br>
-            <input type="date" name="birthday" value="<%= user.birthday %>"><br>
-            <input type="submit" value="Submit Changes">
+            <input type="hidden" name="userId" value="<%= user.id %>" class="form-control">
+            <label for="firstname" class="form-label">First Name</label><br>
+            <input name="firstname" value="<%= user.firstname %>" class="form-control"><br>
+            <label for="lastname" class="form-label">Last Name</label><br>
+            <input name="lastname" value="<%= user.lastname %>" class="form-control"><br>
+            <label for="Email" class="form-label">Email</label><br>
+            <input name="email" value="<%= user.email %>" class="form-control"><br>
+            <label for="birthday" class="form-label">Date Of Birth</label><br>
+            <input type="date" name="birthday" value="<%= user.birthday %>" class="form-control"><br>
+            <input type="submit" class="btn btn-primary" value="Submit Changes">
           </form>
         </div>
       </div>

@@ -106,3 +106,7 @@ nav {
 .active {
     color:rgba(142, 224, 139, 0.747)
 }
+
+.item-section {
+    width: 60%;
+}

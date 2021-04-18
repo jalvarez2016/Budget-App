@@ -1,5 +1,6 @@
 const Item = require('../models/Item');
 const Budget = require('../models/Budget');
+const Banner = require('../models/Banner');
 const utils = require('../utils.js');
 
 const getItem = async (req, res) => {
@@ -7,6 +8,7 @@ const getItem = async (req, res) => {
     const item = await Item.getItem(req.params.id);
     const budget = await Budget.getBudget(item.budget_id);
     budget.items = await Item.getItemsByBudget(budget.id);
+    budget.banner = await Banner.getBanner(budget.banner_style);
     res.render('item', {
       title: `${budget.title}`, item, budget, user: req.session.user
     });
