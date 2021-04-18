@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
         <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/budget.css">
         <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
         <script src="/jquery/jquery.min.js" charset="utf-8"></script>
         <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
@@ -27,35 +28,34 @@
             <div style="display: none;" class="budget-analysis">
                 <h3 id="percent-spent-value"><%= (budget.spent / parseInt(budget.budget_amount) * 100) %></h3>
                 <h4 id="percent-spent-value-int"><%= budget.spent %></h4>
-                <h4 id="percent-total-value-int"><%= parseInt(budget.budget_amount) %></h4>
+                <h4 id="percent-total-value-int"><%= Number(budget.budget_amount) %></h4>
+                <p id="items">
+                    <%for(const item of budget.items) { %>
+                        <%= item.price * item.count %>-<%= item.title %>,
+                    <% } %>
+                </p>
             </div>
             <div style="width: 50%; margin: auto; padding: 50px 0px;" class="budget-analysis">
                 <canvas id="percent-spent"></canvas>
             </div>
             <section class="item-grid">
-                <div class="budget-analysis-icon active">
-                    <div class="analyze-icon">
+                <div class="budget-analysis-icon active card">
+                    <!-- <div class="analyze-icon">
                         Icon
-                    </div>
-                    <div class="analyze-desc">
-                        Total Percent Spent
-                    </div>
+                    </div> -->
+                    <div class="analyze-desc card-body">Total Percent Spent</div>
                 </div>
-                <div class="budget-analysis-icon">
-                    <div class="analyze-icon">
+                <div class="budget-analysis-icon card">
+                    <!-- <div class="analyze-icon">
                         Icon
-                    </div>
-                    <div class="analyze-desc">
-                        Description
-                    </div>
+                    </div> -->
+                    <div class="analyze-desc card-body">Spent Across Items</div>
                 </div>
-                <div class="budget-analysis-icon">
-                    <div class="analyze-icon">
+                <div class="budget-analysis-icon card">
+                    <!-- <div class="analyze-icon">
                         Icon
-                    </div>
-                    <div class="analyze-desc">
-                        Description
-                    </div>
+                    </div> -->
+                    <div class="analyze-desc card-body">Only Items</div>
                 </div>
             </section>
         </div>

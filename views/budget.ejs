@@ -41,12 +41,25 @@
             <span><%= formatter(budget.left) %></span>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+        <div class="budget-buttons" style="margin-left: 1em;">
+          <button id="edit" class="btn btn-outline-primary">Edit</button>
+          <button class="btn btn-outline-primary" data-user-id="<%= budget.user_id %>" data-budget-id="<%= budget.id %>" id="delete" style="margin-left: 1em;">Delete</button>
+        </div>
+>>>>>>> 1f3273bb9df320276ee38e786fe1aad99faabc19
       </section>
       <div class="budget-desc">
-        <p><%= budget.description %></p>
+        <p class="text-muted">Description: <%= budget.description %></p>
       </div>
       <div class="budget-itm-heading">
         <h3>Items</h3>
+<<<<<<< HEAD
+=======
+        <a href="/budgets/<%= budget.id %>/items/new">
+          <button class="btn btn-outline-primary">Add Item</button>
+        </a>
+>>>>>>> 1f3273bb9df320276ee38e786fe1aad99faabc19
       </div>
       <hr>
       <section class="item-grid">

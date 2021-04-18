@@ -125,3 +125,19 @@ nav {
     justify-content: space-between;
     padding: 10px
 }
+<<<<<<< HEAD
+=======
+
+.form-label {
+    padding: 5px 20px;
+}
+
+.page-form {
+    width: 80%;
+    padding: 10px;
+}
+
+.main-content-form {
+    padding: 10px;
+}
+>>>>>>> 1f3273bb9df320276ee38e786fe1aad99faabc19
