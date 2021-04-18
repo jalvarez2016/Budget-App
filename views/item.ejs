@@ -6,13 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title><%= title %></title>
         <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/budget.css">
         <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
         <script src="/jquery/jquery.min.js" charset="utf-8"></script>
         <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
     </head>
     <body>
         <%- include('./partials/nav.ejs') %>
-        <div class="main-content" style="display: flex;">
+        <div class="main-content item-main-content" style="display: flex;">
             <div class="item-section">
                 <div class="budget-banner budget-banner-mini banner-<%= budget.banner %>">
                     <div class="budget-info-btn">
@@ -24,43 +25,46 @@
                         <h3><%= budget.title %></h3>
                     </div>
                 </div>
-                <div class="budget-desc">
+                <!-- <div class="budget-desc">
                     <p><%= budget.description %></p>
-                </div>
-                <div class="main-item">
-                    <h4><%= item.title %></h4>
-                    <h5><%= item.price %></h5>
-                    <p><%= item.purchase_date %></p>
-                    <div class="<%= item.rating %>">
-                        <%= item.rating %>
-                    </div>
-                    <div class="item-cost">
-                        <p><%= item.price%></p>
-                        <p><%= item.count%></p>
-                    </div>
-                    <p><%= item.description%></p>
-                    <div class="item-change-btns">
-                        <form action="/items/<%=item.id%>/edit" method="GET">
-                            <input type="submit" value="Edit">
-                        </form>
-                        <!-- Use AJAX here to delete -->
-                        <form id="deleteItm">
-                            <input name='budget_id' type="hidden" value="<%= item.budget_id %>">
-                            <input name='id' type="hidden" value="<%= item.id %>">
-                            <input type="submit" value="Delete">
-                        </form>
+                </div> -->
+                <div class="card">
+                    <div class="main-item card-body">
+                        <h4><%= item.title %></h4>
+                        <p><%= item.purchase_date %></p>
+                        <div class="<%= item.rating %>">
+                            <%= item.rating %>
+                        </div>
+                        <div class="item-cost">
+                            <div><%= item.price%></div>
+                            <div><%= item.count%></div>
+                        </div>
+                        <p><%= item.description%></p>
+                        <div class="item-change-btns">
+                            <form action="/items/<%=item.id%>/edit" method="GET">
+                                <input class="btn btn-primary item-btn" type="submit" value="Edit">
+                            </form>
+                            <form id="deleteItm">
+                                <input name='budget_id' type="hidden" value="<%= item.budget_id %>">
+                                <input name='id' type="hidden" value="<%= item.id %>">
+                                <input class="btn btn-primary item-btn" type="submit" value="Delete">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            <% budget.items.forEach((itm) => { if(itm.id !== item.id){ %>
-            <a href="/items/<%=itm.id%>" class="budget-item" data-item-id="<%= itm.id %>">
-                <h4><%= itm.title %></h4>
-                <h5><%= itm.price %></h5>
-                <div class="<%= itm.rating %>">
-                    <%= itm.rating %>
-                </div>
-            </a>
-            <%} }) %>
+            <div class="items-container">
+                <% budget.items.forEach((itm) => { if(itm.id !== item.id){ %>
+                <a href="/items/<%=itm.id%>" class="item-item" data-item-id="<%= itm.id %>">
+                    <h4><%= itm.title %></h4>
+                    <h5><%= itm.price %></h5>
+                    <div class="<%= itm.rating %>">
+                        <%= itm.rating %>
+                    </div>
+                </a>
+                <%} }) %>
+            </div>
+            
         </div>
     </body>
     <script src="/js/deleteItem.js" charset="utf-8"></script>
