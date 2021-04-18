@@ -12,7 +12,7 @@
         <script src="/bootstrap/js/bootstrap.bundle.js" charset="utf-8"></script>
     </head>
     <body>
-        <%- include('./partials/nav.ejs') %>
+        <%- include('./partials/nav.ejs', {name: "Item"}) %>
         <div class="main-content item-main-content" style="display: flex;">
             <div class="item-section">
                 <div class="budget-banner budget-banner-mini banner-<%= budget.banner %>">
@@ -31,15 +31,26 @@
                 <div class="card">
                     <div class="main-item card-body">
                         <h4><%= item.title %></h4>
-                        <p><%= item.purchase_date %></p>
+                        <p>Purchased On:
+                            <br>
+                            <%= item.purchase_date %>
+                        </p>
                         <div class="<%= item.rating %>">
-                            <%= item.rating %>
+                            Rating:
+                            <br>
+                            <% for (var i = 0; i<5; i++) { %>
+                              <% if (i < item.rating) { %>
+                                <span>&starf;</span>
+                              <% } else { %>
+                                <span>&star;</span>
+                              <% } %>
+                            <% } %>
                         </div>
                         <div class="item-cost">
-                            <div><%= item.price%></div>
-                            <div><%= item.count%></div>
+                            <div>Price: <%= item.price%></div>
+                            <div>Quantity: <%= item.count%></div>
                         </div>
-                        <p><%= item.description%></p>
+                        <p>Description: <%= item.description%></p>
                         <div class="item-change-btns">
                             <form action="/items/<%=item.id%>/edit" method="GET">
                                 <input class="btn btn-primary item-btn" type="submit" value="Edit">
