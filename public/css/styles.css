@@ -17,12 +17,23 @@ main {
 
 nav {
     display: flex!important;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 10px;
+    padding: 10px 1em;
     position: sticky;
     z-index: 1;
     top: 0;
+}
+
+.nav-top, .nav-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+#left-wrapper, #right-wrapper {
+  display: flex;
+  flex-direction: row;
 }
 
 .page-name h1 {
@@ -38,33 +49,6 @@ nav {
 .user {
     display: flex;
     justify-content: start;
-}
-
-.user div {
-    margin: 10px;
-}
-
-.user-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: black;
-}
-
-.user-info {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-}
-
-.user-btns {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-}
-
-.user-btns form {
-    padding-right: 10px;
 }
 
 .budgets {

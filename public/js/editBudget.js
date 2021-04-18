@@ -1,4 +1,9 @@
 const form = document.getElementById('edit-budget-form');
+const budgetId = form.querySelector('[name="budgetId"]').value;
+
+document.getElementById('budget-button').addEventListener('click', () => {
+  window.location = `${window.location.origin}/budgets/${budgetId}`;
+});
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -6,7 +11,6 @@ form.addEventListener('submit', (e) => {
   const title = form.querySelector('[name="title"]').value;
   const description = form.querySelector('[name="description"]').value;
   const budgetAmount = form.querySelector('[name="budget_amount"]').value;
-  const budgetId = form.querySelector('[name="budgetId"]').value;
   const options = {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },

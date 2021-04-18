@@ -42,4 +42,10 @@
     </form>
   </body>
   <script src="/js/editItem.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    const item = <%- JSON.stringify(item) %>
+    document.getElementById('item-button').addEventListener('click', () => {
+      window.location = `${window.location.origin}/items/${item.id}`;
+    });
+  </script>
 </html>

@@ -17,7 +17,7 @@
             <div class="item-section">
                 <div class="budget-banner budget-banner-mini banner-<%= budget.banner %>">
                     <div class="budget-info-btn">
-                        <a href="/budgets/<%= budget.id%>/analyze">
+                        <a href="/budgets/<%= budget.id %>/analyze">
                             <div class="budget-icon">i</div>
                         </a>
                     </div>
@@ -47,10 +47,10 @@
                             <% } %>
                         </div>
                         <div class="item-cost">
-                            <div>Price: <%= item.price%></div>
-                            <div>Quantity: <%= item.count%></div>
+                            <div>Price: <%= item.price %></div>
+                            <div>Quantity: <%= item.count %></div>
                         </div>
-                        <p>Description: <%= item.description%></p>
+                        <p>Description: <%= item.description %></p>
                         <div class="item-change-btns">
                             <form action="/items/<%=item.id%>/edit" method="GET">
                                 <input class="btn btn-primary item-btn" type="submit" value="Edit">
@@ -75,8 +75,14 @@
                 </a>
                 <%} }) %>
             </div>
-            
+
         </div>
     </body>
     <script src="/js/deleteItem.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      const item = <%- JSON.stringify(item) %>
+      document.getElementById('budget-button').addEventListener('click', () => {
+        window.location = `${window.location.origin}/budgets/${item.budget_id}`;
+      });
+    </script>
 </html>

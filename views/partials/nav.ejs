@@ -1,54 +1,97 @@
 <nav>
-    <div class="logo">
+    <div class="nav-top">
+      <div class="logo">
         <a href="/">
-            <h2>BudgetApp</h2>
+          <h2>BudgetApp</h2>
         </a>
-    </div>
-    <div class="page-name">
-      <h1><%= name %></h1>
-    </div>
-    <div class="side-btns">
-        <% if (user) { %>
-            <div class="wrapper" style="display: flex; flex-direction: column; align-items: flex-end">
-              <div class="logged-user" style="display: flex; margin-bottom: 1em; align-items: center">
-                <span style="margin-right: 1em;"><%= user.firstname %> <%= user.lastname %></span>
-                <div>
-                    <!-- have an ejs conditional here using user -->
-                    <form action="/logout" method="POST">
-                        <button class="btn btn-outline-primary" type="submit">Logout</button>
-                    </form>
-                </div>
-              </div>
-              <div class="nav-buttons" style="display:flex; justify-content: flex-end;">
-                <div>
-                    <!-- have an ejs conditional here using user -->
-                    <a href="/users/<%= user.id %>">
-                        <button class="btn btn-primary">Profile</button>
-                    </a>
-                </div>
-                <div>
-                    <!-- have an ejs conditional here using user -->
-                    <form action="/budgets/new" method="GET">
-                        <input type="hidden" value="<%= user.id %>">
-                        <button class="btn btn-secondary ml-3" type="submit">New Budget +</button>
-                    </form>
-                </div>
-
-              </div>
-            </div>
-        <% } else { %>
-            <div>
-                <!-- have an ejs conditional here using user -->
-                <a href="/signup">
-                    <button class="btn btn-primary">Sign Up</button>
-                </a>
-            </div>
-            <div class="ml-3">
-                <!-- have an ejs conditional here using user -->
-                <a href="/signin">
-                    <button class="btn btn-outline-primary">Sign In</button>
-                </a>
-            </div>
+      </div>
+      <div class="page-name">
+        <h1><%= name %></h1>
+      </div>
+      <% if (user) { %>
+        <div class="logged-user" style="display: flex; margin-bottom: 1em; align-items: center;">
+          <span style="margin-right: 1em;"><%= user.firstname %> <%= user.lastname %></span>
+          <div>
+            <form action="/logout" method="POST">
+              <button class="btn btn-outline-primary" type="submit">Logout</button>
+            </form>
+          </div>
+        </div>
+      <% } else { %>
+          <div>
+            <a href="/signup">
+              <button class="btn btn-primary">Sign Up</button>
+            </a>
+          </div>
+          <div class="ml-3">
+            <a href="/signin">
+              <button class="btn btn-outline-primary">Sign In</button>
+            </a>
+          </div>
         <% } %>
     </div>
+    <div class="nav-bottom">
+      <div id="left-wrapper"></div>
+      <div id="right-wrapper"></div>
+    </div>
 </nav>
+
+<script type="text/javascript">
+const pageName = <%- JSON.stringify(name) %>
+const leftWrapper = document.getElementById('left-wrapper')
+const rightWrapper = document.getElementById('right-wrapper')
+
+function renderButton(text, classes, id) {
+  const button = document.createElement('button')
+  classes.forEach((btnClass) => {
+    button.classList.add(btnClass)
+  });
+  button.textContent = text;
+  button.id = id
+  return button
+}
+
+switch (pageName) {
+  case 'Profile':
+  rightWrapper.append(
+    renderButton('New Budget +', ['btn', 'btn-secondary'], 'new-budget-button')
+  )
+  break;
+  case 'Budget':
+  leftWrapper.append(
+    renderButton('Back to Profile', ['btn', 'btn-outline-primary'], 'profile-button')
+  )
+  rightWrapper.append(
+    renderButton('Add Item +', ['btn', 'btn-primary'], 'add-item'),
+    renderButton('Edit Budget', ['btn', 'btn-secondary', 'ml-3'], 'edit'),
+    renderButton('Delete Budget', ['btn', 'btn-outline-danger', 'ml-3'], 'delete')
+  )
+  break;
+  case 'Editing Budget...':
+  leftWrapper.append(
+    renderButton('Back to Budget', ['btn', 'btn-outline-primary'], 'budget-button')
+  )
+  break;
+  case 'New Item':
+  leftWrapper.append(
+    renderButton('Back to Budget', ['btn', 'btn-outline-primary'], 'budget-button')
+  )
+  break;
+  case 'Item':
+  leftWrapper.append(
+    renderButton('Back to Budget', ['btn', 'btn-outline-primary'], 'budget-button')
+  )
+  break;
+  case 'New Budget':
+  leftWrapper.append(
+    renderButton('Back to Profile', ['btn', 'btn-outline-primary'], 'profile-button')
+  )
+  break;
+  case 'Editing Item...':
+  leftWrapper.append(
+    renderButton('Back to Item', ['btn', 'btn-outline-primary'], 'item-button')
+  )
+  break;
+  default:
+}
+</script>

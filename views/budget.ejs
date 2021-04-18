@@ -27,6 +27,8 @@
       <section class="budget-menu">
         <div class="budget-info">
           <div class="budget-info-bit">
+            <input type="hidden" id="user-id" value="<%= budget.user_id %>">
+            <input type="hidden" id="budget-id" value="<%= budget.id %>">
             <span>Budget Limit</span>
             <span><%= formatter(budget.budget_amount) %></span>
           </div>
@@ -39,19 +41,12 @@
             <span><%= formatter(budget.left) %></span>
           </div>
         </div>
-        <div class="budget-buttons" style="margin-left: 1em;">
-          <button id="edit">Edit</button>
-          <button data-user-id="<%= budget.user_id %>" data-budget-id="<%= budget.id %>" id="delete" style="margin-left: 1em;">Delete</button>
-        </div>
       </section>
       <div class="budget-desc">
         <p><%= budget.description %></p>
       </div>
       <div class="budget-itm-heading">
         <h3>Items</h3>
-        <a href="/budgets/<%= budget.id %>/items/new">
-          <button>Add Item</button>
-        </a>
       </div>
       <hr>
       <section class="item-grid">

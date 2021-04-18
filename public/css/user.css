@@ -1,0 +1,36 @@
+.user-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.user-img span {
+  font-size: 4em;
+  color: white;
+}
+
+.user-info, .user-img {
+  margin: 0.5em;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.user-btns {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.user-btns form {
+    padding-right: 10px;
+}

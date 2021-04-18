@@ -29,6 +29,10 @@
             <input type="date" name="birthday" value="<%= user.birthday %>" class="form-control"><br>
             <input type="submit" class="btn btn-primary" value="Submit Changes">
           </form>
+          <form id="userDelete">
+            <input type="hidden" name="id" value="<%= user.id %>">
+            <button type="submit" class="btn btn-outline-danger" value="Delete">Delete Account</button>
+          </form>
         </div>
       </div>
     </div>
